@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NBApp</string>
+    <string name="ImageButton_height">30dp</string>
+    <string name="Small_textSize">14sp</string>
+    <string name="detail_time_textSize">12sp</string>
+    <string name="detail_record_textSize">16sp</string>
 </resources>

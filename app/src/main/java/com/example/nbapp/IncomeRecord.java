@@ -10,7 +10,7 @@ import java.util.Random;
  * Created by 强仔 on 2018/5/3.
  */
 
-public class Income_record extends DataSupport {
+public class IncomeRecord extends DataSupport {
     private int income_id;
     private int income_money;
     private String income_type;

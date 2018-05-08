@@ -16,17 +16,17 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by 强仔 on 2018/5/3.
  */
 
-public class IncomeRecord_Adapter extends ArrayAdapter<Income_record> {
+public class IncomeRecord_Adapter extends ArrayAdapter<IncomeRecord> {
     private int resourceId;
 
-    public IncomeRecord_Adapter(Context context, int textViewResourceID, List<Income_record> objects) {
+    public IncomeRecord_Adapter(Context context, int textViewResourceID, List<IncomeRecord> objects) {
         super(context, textViewResourceID, objects);
         resourceId = textViewResourceID;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Income_record income_record = getItem(position);
+        IncomeRecord income_record = getItem(position);
         View view;
         ViewHolder viewHolder;
         if (convertView == null) {

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/menu_botttom"/>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            >
+            <TextView
+                android:id="@+id/detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="明 细"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:background="@color/sandybrown"
+                android:gravity="center"
+                />
+
+           <LinearLayout
+               android:id="@+id/detail_hintBar"
+               android:layout_height="wrap_content"
+               android:layout_width="match_parent"
+               android:layout_below="@id/detail_title"
+               android:background="@color/sandybrown"
+               android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/record_calender"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:src="@drawable/calender"
+                android:scaleType="fitCenter"
+                android:background="@color/transparent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1.5"
+                />
+
+               <TextView
+                   android:layout_width="0dp"
+                   android:layout_height="30dp"
+                   android:background="@color/transparent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:text="收入"
+                   android:textSize="15sp"
+                   android:layout_weight="1"
+                   />
+
+               <TextView
+                   android:layout_width="0dp"
+                   android:layout_height="30dp"
+                   android:background="@color/transparent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:text="0.89"
+                   android:textSize="22sp"
+                   android:textColor="@color/black"
+                   android:layout_weight="1"
+                   />
+
+               <TextView
+                   android:layout_width="0dp"
+                   android:layout_height="30dp"
+                   android:background="@color/transparent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:text="支出"
+                   android:textSize="15sp"
+                   android:layout_weight="1"
+                   />
+
+               <TextView
+                   android:layout_width="0dp"
+                   android:layout_height="30dp"
+                   android:background="@color/transparent"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:text="0"
+                   android:textSize="22sp"
+                   android:textColor="@color/black"
+                   android:layout_weight="1"
+                   />
+            </LinearLayout>>
+        </RelativeLayout>
+
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

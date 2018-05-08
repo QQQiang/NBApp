@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.record_botttom);
+        setContentView(R.layout.detail);
 
         //去掉默认actionbar
         ActionBar actionBar=getSupportActionBar();
