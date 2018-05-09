@@ -8,10 +8,9 @@
     >
 
     <TextView
-        android:id="@+id/detail_date"
+        android:id="@+id/detail_timeBar_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/type_icon"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
@@ -21,10 +20,10 @@
         />
 
     <TextView
-        android:id="@+id/detail_week"
+        android:id="@+id/detail_timeBar_week"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/detail_date"
+        android:layout_toRightOf="@id/detail_timeBar_date"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
@@ -34,7 +33,7 @@
         />
 
     <TextView
-        android:id="@+id/detail_expend_money"
+        android:id="@+id/detail_timeBar_expend_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -51,7 +50,7 @@
         android:id="@+id/detail_expend_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/detail_expend_money"
+        android:layout_toLeftOf="@id/detail_timeBar_expend_money"
         android:layout_marginRight="5dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="5dp"
@@ -62,7 +61,7 @@
         />
 
     <TextView
-        android:id="@+id/detail_income_money"
+        android:id="@+id/detail_timeBar_income_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/detail_expend_hint"
@@ -79,7 +78,7 @@
         android:id="@+id/detail_income_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/detail_income_money"
+        android:layout_toLeftOf="@id/detail_timeBar_income_money"
         android:layout_marginRight="5dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="5dp"

@@ -6,7 +6,7 @@
     >
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/type_icon"
+        android:id="@+id/detail_type_icon"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="9dp"
@@ -17,10 +17,10 @@
         android:src="@color/aqua"
         />
     <TextView
-        android:id="@+id/type_name"
+        android:id="@+id/detail_type_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/type_icon"
+        android:layout_toRightOf="@id/detail_type_icon"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
@@ -29,7 +29,7 @@
         android:text="食物"
         />
     <TextView
-        android:id="@+id/money"
+        android:id="@+id/detail_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
