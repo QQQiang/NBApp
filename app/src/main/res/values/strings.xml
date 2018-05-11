@@ -4,4 +4,9 @@
     <string name="Small_textSize">14sp</string>
     <string name="detail_time_textSize">12sp</string>
     <string name="detail_record_textSize">16sp</string>
+    <string name="add_title_textSize">16sp</string>
+    <string name="title_activity_bottom_menu">大富翁记账</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

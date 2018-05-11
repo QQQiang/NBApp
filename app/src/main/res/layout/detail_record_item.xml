@@ -7,21 +7,23 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/detail_type_icon"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginTop="9dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentLeft="true"
-        android:src="@color/aqua"
+        android:src="@drawable/beaty"
+        android:scaleType="fitCenter"
+
         />
     <TextView
         android:id="@+id/detail_type_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/detail_type_icon"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:textSize="@string/detail_record_textSize"

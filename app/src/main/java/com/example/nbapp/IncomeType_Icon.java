@@ -16,6 +16,8 @@ public class IncomeType_Icon extends DataSupport {
         return iconid;
     }
 
+    public void setIconid(int inconid){this.iconid=inconid;}
+
     public String getType(){return income_type;
     }
     public void setType(String income_type){

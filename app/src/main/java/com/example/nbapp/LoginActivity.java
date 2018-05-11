@@ -13,6 +13,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.litepal.LitePal;
+
 public class LoginActivity extends AppCompatActivity {
 
     //登录界面的控件
@@ -29,16 +31,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail);
+        setContentView(R.layout.activity_login);
 
-        //去掉默认actionbar
-        ActionBar actionBar=getSupportActionBar();
-        if(actionBar!=null) {
-            actionBar.hide();
-        }
+        LitePal.getDatabase();
 
         //初始化登录界面控件
-        /*accountEdit=(EditText)findViewById(R.id.user_phone);
+        accountEdit=(EditText)findViewById(R.id.user_phone);
         passwordEdit=(EditText)findViewById(R.id.password);
         remeberPass=(CheckBox) findViewById(R.id.remeber_pass);
         login=(Button)findViewById(R.id.login);
@@ -75,9 +73,8 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     editor.apply();
 
-                    Intent intent=new Intent(LoginActivity.this,AccountBook.class);
+                    Intent intent=new Intent(LoginActivity.this, com.example.nbapp.AddIncomeActivity.class);
                     startActivity(intent);
-                    finish();
                 }
                 else {//用户名或密码错误
                     Toast.makeText(LoginActivity.this,"用户名或密码错误！",
@@ -94,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        });*/
+        });
 
 
     }

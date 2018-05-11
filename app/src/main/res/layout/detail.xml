@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.nbapp.DetailActivity"
+    >
 
+        <include layout="@layout/menu_botttom"
+            />
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include layout="@layout/menu_botttom"/>
-        <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            >
             <TextView
                 android:id="@+id/detail_title"
                 android:layout_width="match_parent"
@@ -22,6 +18,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:background="@color/sandybrown"
+                android:layout_alignParentTop="true"
                 android:gravity="center"
                 />
 
@@ -101,12 +98,13 @@
                    />
 
             </LinearLayout>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/record_recylcer_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </RelativeLayout>
 
-    </android.support.design.widget.CoordinatorLayout>
-</LinearLayout>
+
+        <ExpandableListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_hintBar"
+            />
+
+
+</RelativeLayout>

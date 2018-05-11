@@ -8,11 +8,13 @@ import org.litepal.crud.DataSupport;
 
 public class ExpendType_Icon extends DataSupport {
     private String expend_type;
-    private int imageid;
+    private int iconid;
 
     public int getgetIconid(){
-        return imageid;
+        return iconid;
     }
+
+    public void setIconid(int inconid){this.iconid=inconid;}
 
     public String getType(){return expend_type;
     }
