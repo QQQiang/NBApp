@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,8 +15,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.litepal.LitePal;
+import org.litepal.crud.DataSupport;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private String TAG="LoginActivity";
 
     //登录界面的控件
     private EditText accountEdit;
@@ -34,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         LitePal.getDatabase();
-
         //初始化登录界面控件
         accountEdit=(EditText)findViewById(R.id.user_phone);
         passwordEdit=(EditText)findViewById(R.id.password);
@@ -73,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     editor.apply();
 
-                    Intent intent=new Intent(LoginActivity.this, com.example.nbapp.AddIncomeActivity.class);
+                    Intent intent=new Intent(LoginActivity.this, com.example.nbapp.DetailActivity.class);
                     startActivity(intent);
                 }
                 else {//用户名或密码错误

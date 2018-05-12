@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 public class User extends DataSupport{
 
-    private String id;
+    private String userid;
     private String phone;
     private String password;
     private String name;
@@ -26,11 +26,11 @@ public class User extends DataSupport{
     private Date modifytime;
 
     public String getId(){
-            return id;
+            return userid;
         }
     public void setId(){
         Random random=new Random();
-        id="SoRich"+random.nextInt(100000);
+        userid="SoRich"+random.nextInt(100000);
         }
 
     public String getName(){

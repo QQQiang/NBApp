@@ -1,34 +1,77 @@
 package com.example.nbapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+
+import org.litepal.crud.DataSupport;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddExpendActivity extends AppCompatActivity {
-
-    private ExpendType_Icon cater=new ExpendType_Icon();
-    private ExpendType_Icon beaty=new ExpendType_Icon();
-    private ExpendType_Icon clothes=new ExpendType_Icon();
-    private ExpendType_Icon communi=new ExpendType_Icon();
-    private ExpendType_Icon digtal=new ExpendType_Icon();
-    private ExpendType_Icon donate=new ExpendType_Icon();
-    private ExpendType_Icon food=new ExpendType_Icon();
-    private ExpendType_Icon gifts=new ExpendType_Icon();
-    private ExpendType_Icon investout=new ExpendType_Icon();
-    private ExpendType_Icon medical=new ExpendType_Icon();
-    private ExpendType_Icon pet=new ExpendType_Icon();
-    private ExpendType_Icon play=new ExpendType_Icon();
-    private ExpendType_Icon travel=new ExpendType_Icon();
-    private ExpendType_Icon study=new ExpendType_Icon();
-    private ExpendType_Icon other=new ExpendType_Icon();
-
     private Button expend;
     private  Button income;
+    private ImageButton close;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_expend);
+
+        //为标题栏注册点击事件
+        income=(Button) findViewById(R.id.btn_add_income);
+        expend=(Button)findViewById(R.id.btn_add_expend);
+        close=(ImageButton)findViewById(R.id.btn_close);
+
+        income.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AddExpendActivity.this,AddIncomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AddExpendActivity.this,DetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //加入支出类型recyclerView
+
+        RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recycler_view_expendtype);
+        StaggeredGridLayoutManager layoutManager=new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        ExpendType_IconAdapter adapter=new ExpendType_IconAdapter();
+        recyclerView.setAdapter(adapter);
+
+    }
+
+     /*ExpendType_Icon cater=new ExpendType_Icon();
+        ExpendType_Icon beaty=new ExpendType_Icon();
+        ExpendType_Icon clothes=new ExpendType_Icon();
+        ExpendType_Icon communi=new ExpendType_Icon();
+        ExpendType_Icon digtal=new ExpendType_Icon();
+        ExpendType_Icon donate=new ExpendType_Icon();
+        ExpendType_Icon food=new ExpendType_Icon();
+        ExpendType_Icon gifts=new ExpendType_Icon();
+        ExpendType_Icon investout=new ExpendType_Icon();
+        ExpendType_Icon medical=new ExpendType_Icon();
+        ExpendType_Icon pet=new ExpendType_Icon();
+        ExpendType_Icon play=new ExpendType_Icon();
+        ExpendType_Icon travel=new ExpendType_Icon();
+        ExpendType_Icon study=new ExpendType_Icon();
+        ExpendType_Icon other=new ExpendType_Icon();
 
         cater.setType("餐饮");
         clothes.setType("衣服");
@@ -62,8 +105,22 @@ public class AddExpendActivity extends AppCompatActivity {
         study.setIconid(R.drawable.study);
         other.setIconid(R.drawable.other);
 
-        income=findViewById(R.id.btn_add_income);
+        cater.save();
+        clothes.save();
+        beaty.save();
+        communi.save();
+        digtal.save();
+        donate.save();
+        food.save();
+        investout.save();
+        gifts.save();
+        medical.save();
+        pet.save();
+        play.save();
+        travel.save();
+        study.save();
+        other.save();*/
 
 
-    }
+
 }

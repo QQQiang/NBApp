@@ -51,7 +51,7 @@ public class ExpendRcord extends DataSupport {
 
         for(ExpendType_Icon icon_id:icon_ids){
             if(icon_id.getType().equals(this.expend_type)){
-                return icon_id.getgetIconid();
+                return icon_id.getIconid();
             }
         }
         return -1;

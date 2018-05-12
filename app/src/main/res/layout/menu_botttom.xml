@@ -13,7 +13,7 @@
             android:layout_width="0dp"
             android:layout_weight="1">
         <ImageButton
-            android:id="@+id/btn_menu_deta"
+            android:id="@+id/btn_menu_detail"
             android:layout_height="30dp"
             android:layout_width="wrap_content"
             android:layout_marginLeft="5dp"
@@ -31,7 +31,7 @@
                 android:text="明细"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                android:layout_below="@id/btn_menu_deta"
+                android:layout_below="@id/btn_menu_detail"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"

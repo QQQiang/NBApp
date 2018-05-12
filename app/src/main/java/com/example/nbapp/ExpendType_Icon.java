@@ -10,7 +10,7 @@ public class ExpendType_Icon extends DataSupport {
     private String expend_type;
     private int iconid;
 
-    public int getgetIconid(){
+    public int getIconid(){
         return iconid;
     }
 
