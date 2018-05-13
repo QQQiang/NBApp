@@ -2,11 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/detail_time_item"
+    android:id="@+id/detail_time_item_layout"
     android:layout_marginTop="20dp"
     android:layout_marginBottom="5dp"
     >
-
+<RelativeLayout
+    android:id="@+id/detail_time_item"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    >
     <TextView
         android:id="@+id/detail_timeBar_date"
         android:layout_width="wrap_content"
@@ -32,7 +36,7 @@
         android:text="星期四"
         />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/detail_timeBar_expend_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,6 +90,7 @@
         android:text="收入"
         android:textSize="@string/detail_time_textSize"
         android:textColor="@color/gray_8f"
-        />
+        />-->
+    </RelativeLayout>
 
 </RelativeLayout>

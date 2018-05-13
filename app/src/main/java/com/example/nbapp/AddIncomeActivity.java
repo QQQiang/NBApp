@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,19 +15,48 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.DatePicker;
 
+import org.litepal.crud.DataSupport;
+
 import java.util.Calendar;
+import java.util.List;
 
 public class AddIncomeActivity extends AppCompatActivity {
+    private String TAG = "AddIncomeActivity";
 
-
+    //声明控件
     private Button expend;
-    private  Button income;
+    private Button income;
     private ImageButton close;
+    private ImageButton save;
+    private Button add_date;
+    private EditText add_money;
     private ImageView date;
-    private EditText add_date;
 
     private Calendar cal;
     private int year,month,day;
+
+    //存入的支出项
+    private int income_id;
+    private double income_money;
+    private String income_type;
+    private String income_date;
+    private int income_iconid;
+    private List<IncomeType_Icon> mIncomeTypeList = DataSupport.findAll(IncomeType_Icon.class);
+
+    //声明自定义的监听接口
+    private OnRecyclerviewItemClickListener onRecyclerviewItemClickListener = new OnRecyclerviewItemClickListener() {
+        @Override
+        public void onItemClickListener(View v, int position) {
+            //这里的view就是我们点击的view  position就是点击的positiondn
+            Log.d(TAG, "onItemClickListener: "+position+" "+income_type);
+            IncomeType_Icon expendtype = mIncomeTypeList.get(position);
+            income_type = expendtype.getType();
+            income_iconid = expendtype.getIconid();
+
+
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +66,10 @@ public class AddIncomeActivity extends AppCompatActivity {
         income=(Button)findViewById(R.id.btn_add_income);
         close=(ImageButton)findViewById(R.id.btn_close);
         expend=(Button)findViewById(R.id.btn_add_expend);
+        save = (ImageButton) findViewById(R.id.save);
         date=(ImageView)findViewById(R.id.date);
-        add_date=(EditText)findViewById(R.id.add_date);
+        add_date=(Button)findViewById(R.id.add_date);
+        add_money = (EditText) findViewById(R.id.add_money);
 
         expend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,10 +100,30 @@ public class AddIncomeActivity extends AppCompatActivity {
             }
         });
 
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                income_date = add_date.getText().toString();
+                income_money = Double.parseDouble(add_money.getText().toString());
+
+                IncomeRecord incomeRecord = new IncomeRecord();
+                incomeRecord.setDate(income_date);
+                incomeRecord.setMoney(income_money);
+                incomeRecord.setType(income_type);
+                incomeRecord.setIconid(income_iconid);
+                incomeRecord.save();
+
+
+                Intent intent = new Intent(AddIncomeActivity.this, DetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recycler_view_expendtype);
         StaggeredGridLayoutManager layoutManager=new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        IncomeType_IconAdapter adapter=new IncomeType_IconAdapter();
+        IncomeType_IconAdapter adapter=new IncomeType_IconAdapter(mIncomeTypeList, onRecyclerviewItemClickListener);
         recyclerView.setAdapter(adapter);
 
     }

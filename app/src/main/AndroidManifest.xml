@@ -13,20 +13,20 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterPhoneActivity"
-            />
-        <activity android:name=".RegisterVercodeActivity" />
-        <activity android:name=".RegisterInfoActivity" />
-        <activity android:name=".RecordActvity" />
-        <activity android:name=".AddIncomeActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".AddExpendActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".DetailActivity"
-            android:launchMode="singleTask" ></activity>
+        <activity
+            android:name=".AddIncomeActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".AddExpendActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".DetailActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".RegisterPhoneActivity"></activity>
     </application>
 
 </manifest>

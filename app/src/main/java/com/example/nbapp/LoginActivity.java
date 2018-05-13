@@ -41,7 +41,8 @@ public class LoginActivity extends AppCompatActivity {
 
         LitePal.getDatabase();
 
-        Log.d(TAG, "onCreate: bj");
+       /* DataSupport.deleteAll(ExpendRecord.class);
+        DataSupport.deleteAll(IncomeRecord.class);*/
 
         //初始化登录界面控件
         accountEdit=(EditText)findViewById(R.id.user_phone);

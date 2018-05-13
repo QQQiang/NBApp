@@ -21,6 +21,15 @@ public class IncomeType_IconAdapter extends RecyclerView.Adapter<IncomeType_Icon
 
     private Context mContext;
 
+    //声明自定义的监听接口
+    private OnRecyclerviewItemClickListener mOnRecyclerviewItemClickListener =null;
+
+    public IncomeType_IconAdapter(List<IncomeType_Icon> mIncomeTypeList,
+                                  OnRecyclerviewItemClickListener mOnRecyclerviewItemClickListener){
+        this.mIncomeTypeList= mIncomeTypeList;
+        this.mOnRecyclerviewItemClickListener=mOnRecyclerviewItemClickListener;
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder{
         ImageView type_icon;
         TextView type_name;
@@ -32,9 +41,7 @@ public class IncomeType_IconAdapter extends RecyclerView.Adapter<IncomeType_Icon
         }
     }
 
-    public IncomeType_IconAdapter(){
-        mIncomeTypeList= DataSupport.findAll(IncomeType_Icon.class);
-    }
+
 
     @Override
     public IncomeType_IconAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -43,6 +50,25 @@ public class IncomeType_IconAdapter extends RecyclerView.Adapter<IncomeType_Icon
         }
 
         View view= LayoutInflater.from(mContext).inflate(R.layout.add_type_item,parent,false);
+        final ExpendType_IconAdapter.ViewHolder holder =new ExpendType_IconAdapter.ViewHolder(view);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //将监听传递给自定义接口
+                holder.type_icon.setBackgroundResource(R.color.sandybrown);
+                mOnRecyclerviewItemClickListener.onItemClickListener(v, ((int) v.getTag()));
+            }
+        });
+
+
+
+        holder.type_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         return new IncomeType_IconAdapter.ViewHolder(view);
     }
 
@@ -51,12 +77,13 @@ public class IncomeType_IconAdapter extends RecyclerView.Adapter<IncomeType_Icon
         IncomeType_Icon incomeType_icon = mIncomeTypeList.get(position);
         holder.type_name.setText(incomeType_icon.getType());
         holder.type_icon.setImageResource(incomeType_icon.getIconid());
-
+        holder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount(){
         return mIncomeTypeList.size();
     }
+
 
 }

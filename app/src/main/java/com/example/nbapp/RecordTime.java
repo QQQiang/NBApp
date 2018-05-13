@@ -15,7 +15,6 @@ public class RecordTime extends DataSupport {
     private double allexpend;
 
     public void setDate(Date date){
-
     }
 
     public void setWeek(){
