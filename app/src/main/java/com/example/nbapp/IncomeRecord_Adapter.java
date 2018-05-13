@@ -60,9 +60,9 @@ public class IncomeRecord_Adapter extends RecyclerView.Adapter<IncomeRecord_Adap
     public void onBindViewHolder(ViewHolder holder,int position){
         IncomeRecord incomeRecord=mIncomeRecordList.get(position);
         holder.type_name.setText(incomeRecord.getType());
-        holder.money.setText(incomeRecord.getMoney());
 
-        Glide.with(mContext).load(incomeRecord.getIconIdbyType()).into(holder.type_icon);
+
+
     }
 
     @Override

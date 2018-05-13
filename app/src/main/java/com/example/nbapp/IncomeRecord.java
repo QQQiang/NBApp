@@ -12,10 +12,10 @@ import java.util.Random;
 
 public class IncomeRecord extends DataSupport {
     private int income_id;
-    private int income_money;
+    private double income_money;
     private String income_type;
-    private Date income_time;
-    private int income_type_iconID;
+    private String income_date;
+    private int income_iconid;
 
     public int getId(){
         return income_id;
@@ -25,10 +25,10 @@ public class IncomeRecord extends DataSupport {
         income_id=+random.nextInt(100000);
     }
 
-    public int getMoney(){
+    public double getMoney(){
         return income_money;
     }
-    public void setName(int income_money){
+    public void setMoney(double income_money){
         this.income_money=income_money;
     }
 
@@ -39,22 +39,17 @@ public class IncomeRecord extends DataSupport {
         this.income_type=income_type;
     }
 
-    public Date getTime(){
-        return income_time;
+    public String getDate(){
+        return income_date;
     }
-    public void setTime(Date income_time){
-        this.income_time=income_time;
-    }
-
-    public int getIconIdbyType(){
-        List<IncomeType_Icon> icon_ids=DataSupport.findAll(IncomeType_Icon.class);
-
-        for(IncomeType_Icon icon_id:icon_ids){
-            if(icon_id.getType().equals(this.income_type)){
-                return icon_id.getIconid();
-            }
-        }
-        return -1;
+    public void setDate(String income_time){
+        this.income_date=income_date;
     }
 
+    public int getIconid(){
+        return income_iconid;
+    }
+    public void setIconid(int expend_iconid){
+        this.income_iconid=expend_iconid;
+    }
 }

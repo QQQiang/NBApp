@@ -6,30 +6,67 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import org.litepal.crud.DataSupport;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AddExpendActivity extends AppCompatActivity {
+    private String TAG="AddExpendActivity";
+
+    //声明控件
     private Button expend;
     private  Button income;
     private ImageButton close;
+    private ImageButton save;
+    private Button add_date;
+    private EditText add_money;
+
+
+
+    //存入的支出项
+    private int expend_id;
+    private double expend_money;
+    private String expend_type;
+    private String expend_date;
+    private int expend_iconid;
+    private List<ExpendType_Icon> mExpendTypeList=DataSupport.findAll(ExpendType_Icon.class);
+
+    //声明自定义的监听接口
+    private OnRecyclerviewItemClickListener onRecyclerviewItemClickListener = new OnRecyclerviewItemClickListener() {
+        @Override
+        public void onItemClickListener(View v, int position) {
+            //这里的view就是我们点击的view  position就是点击的position
+            ExpendType_Icon expendtype=mExpendTypeList.get(position);
+            expend_type=expendtype.getType();
+            expend_iconid=expendtype.getIconid();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_expend);
 
-        //为标题栏注册点击事件
+        //定义控件
         income=(Button) findViewById(R.id.btn_add_income);
         expend=(Button)findViewById(R.id.btn_add_expend);
         close=(ImageButton)findViewById(R.id.btn_close);
+        save=(ImageButton)findViewById(R.id.save);
+        add_date=(Button) findViewById(R.id.add_date);
+        add_money=(EditText)findViewById(R.id.add_money);
 
         income.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,13 +84,30 @@ public class AddExpendActivity extends AppCompatActivity {
             }
         });
 
-        //加入支出类型recyclerView
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expend_date=add_date.getText().toString();
+                expend_money=Double.parseDouble(add_money.getText().toString());
+                ExpendRecord expendRecord=new ExpendRecord();
+                expendRecord.setDate(expend_date);
+                expendRecord.setMoney(expend_money);
+                expendRecord.setType(expend_type);
+                expendRecord.setIconid(expend_iconid);
+                expendRecord.save();
 
+                Intent intent=new Intent(AddExpendActivity.this,DetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //加入支出类型recyclerView
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recycler_view_expendtype);
         StaggeredGridLayoutManager layoutManager=new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        ExpendType_IconAdapter adapter=new ExpendType_IconAdapter();
+        ExpendType_IconAdapter adapter=new ExpendType_IconAdapter(mExpendTypeList,onRecyclerviewItemClickListener);
         recyclerView.setAdapter(adapter);
+
 
     }
 

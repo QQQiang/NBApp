@@ -49,6 +49,7 @@
                 android:layout_toLeftOf="@id/center_line"
                 android:background="@color/transparent"
                 android:text="收入"
+                android:textColor="@color/gray"
                 android:textSize="16sp" />
 
             <Button
@@ -62,7 +63,7 @@
                 android:layout_toRightOf="@id/center_line"
                 android:background="@color/transparent"
                 android:text="支出"
-                android:textColor="@color/gray"
+
                 android:textSize="16sp" />
 
             <ImageButton
@@ -93,7 +94,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="7dp"
                 app:srcCompat="@drawable/date" />
-            <EditText
+            <Button
                 android:id="@+id/add_date"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
@@ -102,10 +103,11 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
                 android:ems="10"
-                android:inputType="date"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
+                android:text="2018-5-13"
                 android:textSize="18sp"
                 android:gravity="center"
+                android:background="@color/transparent"
                 />
 
             <ImageView

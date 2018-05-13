@@ -10,12 +10,13 @@ import java.util.Random;
  * Created by 强仔 on 2018/5/3.
  */
 
-public class ExpendRcord extends DataSupport {
+public class ExpendRecord extends DataSupport {
     private int expend_id;
-    private int expend_money;
+    private double expend_money;
     private String expend_type;
-    private Date expend_time;
-    private int income_type_iconID;
+    private String expend_date;
+    private int expend_iconid;
+
 
     public int getId(){
         return expend_id;
@@ -25,10 +26,10 @@ public class ExpendRcord extends DataSupport {
         expend_id=+random.nextInt(100000);
     }
 
-    public int getMoney(){
+    public double getMoney(){
         return expend_money;
     }
-    public void setName(int expend_money){
+    public void setMoney(double expend_money){
         this.expend_money=expend_money;
     }
 
@@ -39,23 +40,18 @@ public class ExpendRcord extends DataSupport {
         this.expend_type=expend_type;
     }
 
-    public Date getTime(){
-        return expend_time;
+    public int getIconid(){
+        return expend_iconid;
     }
-    public void setTime(Date expend_time){
-        this.expend_time=expend_time;
-    }
-
-    public int getIconIdbyType(){
-        List<ExpendType_Icon> icon_ids=DataSupport.findAll(ExpendType_Icon.class);
-
-        for(ExpendType_Icon icon_id:icon_ids){
-            if(icon_id.getType().equals(this.expend_type)){
-                return icon_id.getIconid();
-            }
-        }
-        return -1;
+    public void setIconid(int expend_iconid){
+        this.expend_iconid=expend_iconid;
     }
 
+    public String getDate(){
+        return expend_date;
+    }
+    public void setDate(String expend_date){
+        this.expend_date=expend_date;
+    }
 
 }

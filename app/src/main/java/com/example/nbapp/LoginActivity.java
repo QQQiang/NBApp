@@ -41,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
 
         LitePal.getDatabase();
 
+        Log.d(TAG, "onCreate: bj");
+
         //初始化登录界面控件
         accountEdit=(EditText)findViewById(R.id.user_phone);
         passwordEdit=(EditText)findViewById(R.id.password);
