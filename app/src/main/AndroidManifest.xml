@@ -17,16 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".AddIncomeActivity"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".AddExpendActivity"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".DetailActivity"
-            android:launchMode="singleTask" />
-        <activity android:name=".RegisterPhoneActivity"></activity>
+        <activity android:name=".AddIncomeActivity" />
+        <activity android:name=".AddExpendActivity" />
+        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".RegisterPhoneActivity" />
+        <activity android:name=".FindActivity"></activity>
     </application>
 
 </manifest>

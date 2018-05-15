@@ -52,6 +52,8 @@
     <color name="lightcoral">#F08080</color><!--亮珊瑚色 -->
     <color name="palegoldenrod">#EEE8AA</color><!--苍麒麟色 -->
     <color name="violet">#EE82EE</color><!--紫罗兰色 -->
+    <color name="test">#87CEEB</color><!--天蓝色135,206,235 -->
+    <color name="LavenderBlush">#FFF0F5</color><!--天蓝色135,206,235 -->
     <color name="darksalmon">#E9967A</color><!--暗肉色 -->
     <color name="lavender">#E6E6FA</color><!--淡紫色 -->
     <color name="lightcyan">#E0FFFF</color><!--亮青色 -->

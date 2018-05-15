@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/detail_record_item"
-    >
+
+    ></LinearLayout>-->
 <RelativeLayout
+    android:id="@+id/detail_record_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
@@ -17,8 +19,9 @@
             android:layout_marginTop="9dp"
             android:layout_marginLeft="10dp"
             android:textSize="@string/detail_time_textSize"
+            android:text="5月13号"
             android:textColor="@color/gray_8f"
-            android:text="5月3号"
+
             />
 
         <TextView
@@ -28,80 +31,30 @@
             android:layout_toRightOf="@id/detail_timeBar_date"
             android:layout_marginTop="9dp"
             android:layout_marginLeft="10dp"
-            android:textSize="@string/detail_time_textSize"
-            android:textColor="@color/gray_8f"
             android:text="星期四"
-            />
-
-        <!--<TextView
-            android:id="@+id/detail_timeBar_expend_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="5dp"
-            android:text="0"
             android:textSize="@string/detail_time_textSize"
             android:textColor="@color/gray_8f"
-            />
 
-        <TextView
-            android:id="@+id/detail_expend_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/detail_timeBar_expend_money"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="5dp"
-            android:text="支出："
-            android:textSize="@string/detail_time_textSize"
-            android:textColor="@color/gray_8f"
             />
-
-        <TextView
-            android:id="@+id/detail_timeBar_income_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/detail_expend_hint"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="5dp"
-            android:text="0"
-            android:textSize="@string/detail_time_textSize"
-            android:textColor="@color/gray_8f"
-            />
-
-        <TextView
-            android:id="@+id/detail_income_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/detail_timeBar_income_money"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="5dp"
-            android:text="收入"
-            android:textSize="@string/detail_time_textSize"
-            android:textColor="@color/gray_8f"
-            />-->
 
     <ImageView
         android:id="@+id/detail_type_icon"
         android:layout_width="27dp"
         android:layout_height="27dp"
-        android:src="@drawable/beaty"
+        android:src="@drawable/camera"
         android:scaleType="fitCenter"
-
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/detail_type_name"
-        android:layout_toStartOf="@+id/detail_type_name" />
+        android:layout_toStartOf="@+id/detail_type_name"
+        android:layout_marginRight="11dp"
+        android:layout_marginEnd="11dp" />
     <TextView
         android:id="@+id/detail_type_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="相机"
         android:textSize="@string/detail_record_textSize"
         android:textColor="@color/black"
-        android:text="食物"
         android:layout_alignBaseline="@+id/detail_money"
         android:layout_alignBottom="@+id/detail_money"
         android:layout_alignRight="@+id/detail_money"
@@ -112,16 +65,66 @@
         android:id="@+id/detail_money"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:text="0.00"
         android:gravity="right"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
-        android:text="0.00"
         android:textSize="@string/detail_record_textSize"
         android:textColor="@color/black"
         />
 
 </RelativeLayout>
-</LinearLayout>
+    <!--<TextView
+               android:id="@+id/detail_timeBar_expend_money"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentRight="true"
+               android:layout_marginRight="10dp"
+               android:layout_marginTop="9dp"
+               android:layout_marginLeft="5dp"
+               android:text="0"
+               android:textSize="@string/detail_time_textSize"
+               android:textColor="@color/gray_8f"
+               />
+
+           <TextView
+               android:id="@+id/detail_expend_hint"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_toLeftOf="@id/detail_timeBar_expend_money"
+               android:layout_marginRight="5dp"
+               android:layout_marginTop="9dp"
+               android:layout_marginLeft="5dp"
+               android:text="支出："
+               android:textSize="@string/detail_time_textSize"
+               android:textColor="@color/gray_8f"
+               />
+
+           <TextView
+               android:id="@+id/detail_timeBar_income_money"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_toLeftOf="@id/detail_expend_hint"
+               android:layout_marginRight="5dp"
+               android:layout_marginTop="9dp"
+               android:layout_marginLeft="5dp"
+               android:text="0"
+               android:textSize="@string/detail_time_textSize"
+               android:textColor="@color/gray_8f"
+               />
+
+           <TextView
+               android:id="@+id/detail_income_hint"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_toLeftOf="@id/detail_timeBar_income_money"
+               android:layout_marginRight="5dp"
+               android:layout_marginTop="9dp"
+               android:layout_marginLeft="5dp"
+               android:text="收入"
+               android:textSize="@string/detail_time_textSize"
+               android:textColor="@color/gray_8f"
+               />-->

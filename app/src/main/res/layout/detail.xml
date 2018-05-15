@@ -1,306 +1,285 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.nbapp.DetailActivity"
-    >
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
 
-    >
+    <RelativeLayout
+        android:layout_width="381dp"
+        android:layout_height="133dp">
 
-    <LinearLayout
-        android:layout_height="60dp"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:background="@color/floralwhite"
-        android:id="@+id/menu_bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/sandybrown"
+            android:gravity="center"
+            android:text="明 细"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/detail_hintBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="1">
+            android:layout_below="@id/detail_title"
+            android:background="@color/sandybrown"
+            android:orientation="horizontal">
+
             <ImageButton
-                android:id="@+id/btn_menu_detail"
-                android:layout_height="30dp"
-                android:layout_width="wrap_content"
-                android:background="@null"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/detail_drak"
-                android:scaleType="fitCenter"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                    android:id="@+id/record_calender"
+                    android:layout_width="47dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/calender" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="明细"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:layout_below="@id/btn_menu_detail"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="5dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginBottom="3dp"
-                />
-        </RelativeLayout>
-        <!-- <RelativeLayout
-             android:layout_width="0dp"
-             android:layout_height="wrap_content"
-             android:layout_weight="1">
-             <ImageButton
-                 android:id="@+id/btn_menu_stat"
-                 android:layout_height="30dp"
-                 android:layout_width="wrap_content"
-                 android:background="@null"
-                 android:layout_marginLeft="5dp"
-                 android:layout_marginRight="5dp"
-                 android:layout_marginTop="5dp"
-                 android:minWidth="0dp"
-                 android:minHeight="0dp"
-                 android:src="@drawable/statistics_dark"
-                 android:scaleType="fitCenter"
-                 />
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="图表"
-                 android:textColor="@color/black"
-                 android:textSize="12sp"
-                 android:layout_below="@id/btn_menu_stat"
-                 android:layout_centerInParent="true"
-                 android:layout_marginLeft="5dp"
-                 android:layout_marginRight="5dp"
-                 android:layout_marginBottom="3dp"
-                 android:layout_marginTop="5dp"
-                 />
-
-         </RelativeLayout>-->
-
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <ImageButton
-                android:id="@+id/btn_menu_add"
-                android:layout_height="30dp"
-                android:layout_width="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="@null"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:src="@drawable/add"
-                android:scaleType="fitCenter"
-                android:layout_weight="1"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:background="@color/transparent"
+                android:text="收入"
+                android:textSize="15sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="记录"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:layout_below="@id/btn_menu_add"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginTop="5dp"
-                />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <ImageButton
-                android:id="@+id/btn_menu_find"
-                android:layout_height="30dp"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@null"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:src="@drawable/find_dark"
-                android:scaleType="fitCenter"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="汇总"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:layout_below="@id/btn_menu_find"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="5dp"
-                />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:id="@+id/btn_menu_my"
-                android:layout_height="30dp"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@null"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:src="@drawable/my_dark"
-                android:scaleType="fitCenter"
-                android:layout_weight="1"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="我的"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:layout_below="@id/btn_menu_my"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="5dp"
-                />
-
-        </RelativeLayout>
-    </LinearLayout>
-
-            <TextView
-                android:id="@+id/detail_title"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="明 细"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:background="@color/sandybrown"
-                android:layout_alignParentTop="true"
-                android:gravity="center"
-                />
-
-           <LinearLayout
-               android:id="@+id/detail_hintBar"
-               android:layout_height="wrap_content"
-               android:layout_width="match_parent"
-               android:layout_below="@id/detail_title"
-               android:background="@color/sandybrown"
-               android:orientation="horizontal">
-            <ImageButton
-                android:id="@+id/record_calender"
+                android:id="@+id/detail_allincome"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:src="@drawable/calender"
-                android:scaleType="fitCenter"
-                android:background="@color/transparent"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:gravity="right"
+                android:text="0.89"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1.5"
-                />
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.39"
+                android:background="@color/transparent"
+                android:text="支出"
+                android:textSize="15sp" />
 
-               <TextView
-                   android:layout_width="0dp"
-                   android:layout_height="30dp"
-                   android:background="@color/transparent"
-                   android:layout_marginLeft="5dp"
-                   android:layout_marginRight="5dp"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginBottom="5dp"
-                   android:text="收入"
-                   android:textSize="15sp"
-                   android:layout_weight="1"
-                   />
+            <TextView
+                android:id="@+id/detail_allexpend"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:gravity="right"
+                android:text="0.00"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+        </LinearLayout>
 
-               <TextView
-                   android:id="@+id/detail_allincome"
-                   android:layout_width="0dp"
-                   android:layout_height="30dp"
-                   android:background="@color/transparent"
-                   android:layout_marginLeft="5dp"
-                   android:layout_marginRight="5dp"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginBottom="5dp"
-                   android:text="0.89"
-                   android:textSize="22sp"
-                   android:textColor="@color/black"
-                   android:layout_weight="1"
-                   />
 
-               <TextView
-                   android:layout_width="0dp"
-                   android:layout_height="30dp"
-                   android:background="@color/transparent"
-                   android:layout_marginLeft="5dp"
-                   android:layout_marginRight="5dp"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginBottom="5dp"
-                   android:text="支出"
-                   android:textSize="15sp"
-                   android:layout_weight="1"
-                   />
+        <LinearLayout
+            android:id="@+id/menu_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/floralwhite"
+            android:orientation="horizontal">
 
-               <TextView
-                   android:id="@+id/detail_allexpend"
-                   android:layout_width="0dp"
-                   android:layout_height="30dp"
-                   android:background="@color/transparent"
-                   android:layout_marginLeft="5dp"
-                   android:layout_marginRight="5dp"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginBottom="5dp"
-                   android:text="0.00"
-                   android:textSize="22sp"
-                   android:textColor="@color/black"
-                   android:layout_weight="1"
-                   />
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-            </LinearLayout>
+                <ImageButton
+                    android:id="@+id/btn_menu_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@null"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/detail_drak" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_incomedetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detail_hintBar"
-        android:layout_above="@id/recycler_view_expenddetail"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_menu_detail"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="明细"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/btn_menu_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/add" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_menu_add"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="记录"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/btn_menu_find"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@null"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/find_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_menu_find"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="发现"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/btn_menu_my"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/my_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_menu_my"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="我的"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_expenddetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/recycler_view_incomedetail"
+        android:layout_below="@id/detail_hintBar"
         android:layout_above="@id/menu_bottom"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"/>-->
 
-
-</RelativeLayout>
+    </RelativeLayout>
 </LinearLayout>
+    <!-- <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/btn_menu_stat"
+                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:src="@drawable/statistics_dark"
+                    android:scaleType="fitCenter"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="图表"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_below="@id/btn_menu_stat"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="5dp"
+                    />
+
+            </RelativeLayout>-->

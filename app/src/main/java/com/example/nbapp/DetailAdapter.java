@@ -21,11 +21,11 @@ import java.util.List;
 
 public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder> {
 
-    private List<ExpendRecord> mRecordList;
+    private List<Record> mRecordList;
     private Context mContext;
     private String WeekNames[] = {"星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
 
-    public DetailAdapter(List<ExpendRecord> mRecordList){
+    public DetailAdapter(List<Record> mRecordList){
         this.mRecordList= mRecordList;
     }
 
@@ -60,19 +60,19 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(DetailAdapter.ViewHolder holder,int position){
-        ExpendRecord expendrecord = mRecordList.get(position);
+       Record record = mRecordList.get(position);
 
         Calendar calender = Calendar.getInstance();// 获得一个日历的实例
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            calender.setTime(sdf.parse(expendrecord.getDate()));
+            calender.setTime(sdf.parse(record.getDate()));
             holder.detail_date.setText(calender.get(Calendar.MONTH)+"月"+calender.get(Calendar.DATE)+"号");
             holder.detail_week.setText(WeekNames[calender.get(Calendar.DAY_OF_WEEK)-1]);
         } catch (ParseException e) {
             Log.d("DerailAdapter", "onBindViewHolder: "+e.getMessage());
         }
 
-        holder.detail_money.setText("-"+expendrecord.getMoney());
+        holder.detail_money.setText(""+record.getMoney());
 
     }
 

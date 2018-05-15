@@ -61,6 +61,8 @@ public class ExpendType_IconAdapter extends RecyclerView.Adapter<ExpendType_Icon
 
     @Override
     public ExpendType_IconAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        Log.i(TAG, "onCreateViewHolder: ");
+
         if(mContext ==null){
             mContext=parent.getContext();
         }
@@ -80,6 +82,8 @@ public class ExpendType_IconAdapter extends RecyclerView.Adapter<ExpendType_Icon
 
     @Override
     public void onBindViewHolder(ExpendType_IconAdapter.ViewHolder holder,int position){
+
+        Log.i(TAG, "onBindViewHolder: ");
         ExpendType_Icon expendType_icon = mExpendTypeList.get(position);
         holder.type_name.setText(expendType_icon.getType());
         holder.type_icon.setImageResource(expendType_icon.getIconid());

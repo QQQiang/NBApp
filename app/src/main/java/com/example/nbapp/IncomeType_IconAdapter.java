@@ -60,15 +60,6 @@ public class IncomeType_IconAdapter extends RecyclerView.Adapter<IncomeType_Icon
             }
         });
 
-
-
-        holder.type_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         return new IncomeType_IconAdapter.ViewHolder(view);
     }
 

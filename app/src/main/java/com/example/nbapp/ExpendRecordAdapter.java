@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,69 +22,87 @@ import java.util.List;
  * Created by 强仔 on 2018/5/13.
  */
 
-public class ExpendRecordAdapter extends RecyclerView.Adapter<ExpendRecordAdapter.ViewHolder> {
+public class ExpendRecordAdapter extends ArrayAdapter<ExpendRecord> {
     private String TAG="ExpendRecordAdapter";
-
-    private List<ExpendRecord> mRecordList;
-    private Context mContext;
+    private  int resourceId;
     private String WeekNames[] = {"星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
 
-    public ExpendRecordAdapter(){
-        mRecordList=DataSupport.findAll(ExpendRecord.class);
+    public ExpendRecordAdapter(Context context, int textViewResourceID, List<ExpendRecord>objects){
+        super(context,textViewResourceID,objects);
+        resourceId=textViewResourceID;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+   class ViewHolder extends RecyclerView.ViewHolder {
         TextView detail_date;
         TextView detail_week;
         TextView detail_money;
+        ImageView detail_type_icon;
+        TextView detail_type_name;
 
         public ViewHolder(View view){
             super(view);
             detail_date=(TextView)view.findViewById(R.id.detail_timeBar_date);
             detail_week=(TextView)view.findViewById(R.id.detail_timeBar_week);
             detail_money=(TextView)view.findViewById(R.id.detail_money);
+            detail_type_name=(TextView)view.findViewById(R.id.detail_type_name);
+            detail_type_icon=(ImageView)view.findViewById(R.id.detail_type_icon);
         }
     }
 
     @Override
-    public ExpendRecordAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        if(mContext ==null){
-            mContext=parent.getContext();
+    public View getView(int position, View convertView, ViewGroup parent){
+        Log.i(TAG, "getView: ");
+
+        ExpendRecord record=getItem(position);
+        View view;
+        ViewHolder holder;
+        if(convertView ==null){
+            view= LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_record_item,parent,false);
+            holder=new ViewHolder(view);
+            view.setTag(holder);
+        }else {
+            view=convertView;
+            holder=(ViewHolder)view.getTag();
         }
-        View view= LayoutInflater.from(mContext).inflate(R.layout.add_type_item,parent,false);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        return new ExpendRecordAdapter.ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(ExpendRecordAdapter.ViewHolder holder,int position){
-        ExpendRecord expendrecord = mRecordList.get(position);
-
-
-
         Calendar calender = Calendar.getInstance();// 获得一个日历的实例
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            calender.setTime(sdf.parse(expendrecord.getDate()));
-            holder.detail_date.setText(calender.get(Calendar.MONTH)+"月"+calender.get(Calendar.DATE)+"号");
+            calender.setTime(sdf.parse(record.getDate()));
+            holder.detail_date.setText(calender.get(Calendar.MONTH)+"月"+calender.get(Calendar.DAY_OF_MONTH)+"号");
             holder.detail_week.setText(WeekNames[calender.get(Calendar.DAY_OF_WEEK)-1]);
         } catch (ParseException e) {
             Log.d(TAG, "onBindViewHolder: "+e.getMessage());
         }
 
-        holder.detail_money.setText("-"+expendrecord.getMoney());
+        holder.detail_money.setText("-"+record.getMoney());
+        holder.detail_type_name.setText(record.getType());
+        holder.detail_type_icon.setBackgroundResource(record.getIconid());
+        return view;
+    }
+   /* @Override
+    public ExpendRecordAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_record_item,parent,false);
+        Log.i(TAG, "onCreateViewHolder: ");
+        return new ExpendRecordAdapter.ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ExpendRecordAdapter.ViewHolder holder,int position){
+        ExpendRecord record = mRecordList.get(position);
+
+        Log.i(TAG, "onBindViewHolder: "+position);
+        Log.i(TAG, "onBindViewHolder: "+record.getMoney());
+        Log.i(TAG, "onBindViewHolder: "+record.getDate());
+        Log.i(TAG, "onBindViewHolder: "+record.getType());
+        Log.i(TAG, "onBindViewHolder: "+record.getIconid());
+
+
 
     }
 
     @Override
     public int getItemCount(){
-        return mRecordList.size();
-    }
+        return mRecordList.size();}
+   */
 
 }

@@ -63,6 +63,8 @@ public class AddIncomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_income);
 
+
+
         income=(Button)findViewById(R.id.btn_add_income);
         close=(ImageButton)findViewById(R.id.btn_close);
         expend=(Button)findViewById(R.id.btn_add_expend);
@@ -115,6 +117,7 @@ public class AddIncomeActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(AddIncomeActivity.this, DetailActivity.class);
+                intent.putExtra("addincomemoney",income_money);
                 startActivity(intent);
             }
         });

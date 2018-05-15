@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content">
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@color/transparent">
     <LinearLayout
         android:layout_height="60dp"
         android:layout_width="match_parent"
@@ -26,7 +27,9 @@
             android:src="@drawable/detail_drak"
             android:scaleType="fitCenter"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,40 +44,6 @@
                 android:layout_marginBottom="3dp"
                 />
         </RelativeLayout>
-       <!-- <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <ImageButton
-                android:id="@+id/btn_menu_stat"
-                android:layout_height="30dp"
-                android:layout_width="wrap_content"
-                android:background="@null"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:src="@drawable/statistics_dark"
-                android:scaleType="fitCenter"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="图表"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:layout_below="@id/btn_menu_stat"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="5dp"
-                />
-
-        </RelativeLayout>-->
-
-
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -91,7 +60,9 @@
                 android:scaleType="fitCenter"
                 android:layout_weight="1"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -124,12 +95,13 @@
             android:src="@drawable/find_dark"
             android:scaleType="fitCenter"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:clickable="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="汇总"
+                android:text="发现"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:layout_below="@id/btn_menu_find"
@@ -160,7 +132,9 @@
                 android:scaleType="fitCenter"
                 android:layout_weight="1"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -178,9 +152,37 @@
 
         </RelativeLayout>
     </LinearLayout>
-
-
-
-
-
 </RelativeLayout>
+
+    <!-- <RelativeLayout
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="1">
+               <ImageButton
+                   android:id="@+id/btn_menu_stat"
+                   android:layout_height="30dp"
+                   android:layout_width="wrap_content"
+                   android:background="@null"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_marginTop="5dp"
+                   android:minWidth="0dp"
+                   android:minHeight="0dp"
+                   android:src="@drawable/statistics_dark"
+                   android:scaleType="fitCenter"
+                   />
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="图表"
+                   android:textColor="@color/black"
+                   android:textSize="12sp"
+                   android:layout_below="@id/btn_menu_stat"
+                   android:layout_centerInParent="true"
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_marginBottom="3dp"
+                   android:layout_marginTop="5dp"
+                   />
+
+           </RelativeLayout>-->

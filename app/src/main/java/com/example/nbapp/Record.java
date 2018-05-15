@@ -1,16 +1,12 @@
 package com.example.nbapp;
 
-import org.litepal.crud.DataSupport;
-
-import java.util.Date;
-import java.util.List;
 import java.util.Random;
 
 /**
- * Created by 强仔 on 2018/5/3.
+ * Created by 强仔 on 2018/5/15.
  */
 
-public class IncomeRecord extends DataSupport {
+public class Record {
     private int income_id;
     private double income_money;
     private String income_type;

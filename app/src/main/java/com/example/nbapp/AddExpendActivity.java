@@ -133,6 +133,7 @@ public class AddExpendActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(AddExpendActivity.this, DetailActivity.class);
+                intent.putExtra("addexpendmoney",expend_money);
                 startActivity(intent);
             }
         });
@@ -143,6 +144,7 @@ public class AddExpendActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         ExpendType_IconAdapter adapter = new ExpendType_IconAdapter(mExpendTypeList, onRecyclerviewItemClickListener);
         recyclerView.setAdapter(adapter);
+
 
     }
 

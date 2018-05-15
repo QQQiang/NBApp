@@ -3,6 +3,7 @@ package com.example.nbapp;
 import android.accounts.Account;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -38,11 +39,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Log.d(TAG, "onCreate: ");
 
         LitePal.getDatabase();
-
-       /* DataSupport.deleteAll(ExpendRecord.class);
-        DataSupport.deleteAll(IncomeRecord.class);*/
 
         //初始化登录界面控件
         accountEdit=(EditText)findViewById(R.id.user_phone);
@@ -82,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     editor.apply();
 
-                    Intent intent=new Intent(LoginActivity.this, com.example.nbapp.DetailActivity.class);
+                    Intent intent=new Intent(LoginActivity.this,FindActivity.class);
                     startActivity(intent);
                 }
                 else {//用户名或密码错误
@@ -96,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this,RegisterPhoneActivity.class);
+                Intent intent=new Intent(LoginActivity.this,DetailActivity.class);
                 startActivity(intent);
                 finish();
             }
