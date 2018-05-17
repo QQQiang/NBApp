@@ -20,7 +20,9 @@ import java.util.List;
  * Created by 强仔 on 2018/5/13.
  */
 
-public class IncomeRecordAdapter extends RecyclerView.Adapter<IncomeRecordAdapter.ViewHolder> {
+public class IncomeRecordAdapter {
+    /*
+    extends RecyclerView.Adapter<IncomeRecordAdapter.ViewHolder>
     private String TAG="IncomeRecordAdapter";
 
     private List<IncomeRecord> mRecordList;
@@ -89,7 +91,7 @@ public class IncomeRecordAdapter extends RecyclerView.Adapter<IncomeRecordAdapte
     @Override
     public int getItemCount(){
         return mRecordList.size();
-    }
+    }*/
 
 }
 

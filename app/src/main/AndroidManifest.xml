@@ -13,15 +13,20 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".AddIncomeActivity" />
         <activity android:name=".AddExpendActivity" />
-        <activity android:name=".DetailActivity"></activity>
-        <activity android:name=".RegisterPhoneActivity" />
-        <activity android:name=".FindActivity"></activity>
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".FindActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".UserActivity">
+            <action android:name="com.example.nbapp.ACTION_STAERT" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.LOGINTOUSER" />
+
+        </activity>
     </application>
 
 </manifest>

@@ -3,6 +3,8 @@ package com.example.nbapp;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,12 +33,15 @@ public class FindActivity extends AppCompatActivity {
     private ImageButton detail;
     private ImageButton add;
     private ImageButton find;
+    private ImageButton my;
+
     private PieView pieView;
     private TextView tv_surplus;
     private TextView tv_allexpend;
     private Button editbudget;
     private TextView tv_allbudget;
     private EditText dialog_ed_budget;
+
 
     private List<ExpendRecord> mExpendRecordList;
     private double allexpend;
@@ -45,6 +50,10 @@ public class FindActivity extends AppCompatActivity {
 
     private  ArrayList<PieData> datas = new ArrayList<>();
 
+    //使用sharedpreferences对象完成记住预算功能
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,21 +61,71 @@ public class FindActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: ");
 
-       View view = this.getLayoutInflater().inflate((R.layout.find), null);
+        View view = this.getLayoutInflater().inflate((R.layout.find), null);
 
-        mExpendRecordList= DataSupport.findAll(ExpendRecord.class);
+        mExpendRecordList = DataSupport.findAll(ExpendRecord.class);
 
-        add = (ImageButton) view.findViewById(R.id.btn_menu_add);
-        detail = (ImageButton) view.findViewById(R.id.btn_menu_detail);
-        find=(ImageButton)view.findViewById(R.id.btn_menu_find);
-        pieView=(PieView)view.findViewById(R.id.pie_view);
-        tv_surplus=(TextView)findViewById(R.id.surplus);
-        tv_allbudget=(TextView)findViewById(R.id.allbudget);
-        tv_allexpend=(TextView)findViewById(R.id.allexpend);
-        editbudget=(Button)findViewById(R.id.edit_budget);
-        dialog_ed_budget=new EditText(FindActivity.this);
+        add = (ImageButton)findViewById(R.id.btn_menu_add);
+        detail = (ImageButton) findViewById(R.id.btn_menu_detail);
+        find = (ImageButton) findViewById(R.id.btn_menu_find);
+        my=(ImageButton)findViewById(R.id.btn_menu_my);
+
+        pieView = (PieView) findViewById(R.id.pie_view);
+        tv_surplus = (TextView) findViewById(R.id.surplus);
+        tv_allbudget = (TextView) findViewById(R.id.allbudget);
+        tv_allexpend = (TextView) findViewById(R.id.allexpend);
+        editbudget = (Button) findViewById(R.id.edit_budget);
+        dialog_ed_budget = new EditText(FindActivity.this);
 
         find.setImageResource(R.drawable.find);
+
+        detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FindActivity.this, com.example.nbapp.DetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        my.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FindActivity.this, com.example.nbapp.UserActivity.class);
+                startActivity(intent);
+            }
+        });
+
+            //算当月全部支出
+        Calendar calender = Calendar.getInstance();// 获得一个日历的实例
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+
+        for (ExpendRecord expendRecord : mExpendRecordList) {
+            try {
+                calender.setTime(sdf.parse(expendRecord.getDate()));
+                if ((calender.get(Calendar.MONTH)) == 4) {
+                    allexpend = allexpend + expendRecord.getMoney();
+                }
+
+            } catch (ParseException e) {
+                Log.d(TAG, "onCreate: " + e.getMessage());
+            }
+
+        }
+        tv_allexpend.setText(allexpend + "");
+
+        //预先设置饼状图
+        allbudget = Double.parseDouble(tv_allbudget.getText().toString());
+        Log.d(TAG, "allbudget :" + allbudget);
+        surplus = allbudget - allexpend;
+        Log.d(TAG, "surplus " + surplus);
+        tv_surplus.setText(surplus + "");
+
+        PieData pd_surplus = new PieData("sloop", (float) surplus);
+        PieData pd_expend = new PieData("sloop", (float) allexpend);
+        datas.add(pd_surplus);
+        datas.add(pd_expend);
+        pieView.setData(datas);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,45 +136,31 @@ public class FindActivity extends AppCompatActivity {
             }
         });
 
-        detail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(FindActivity.this, com.example.nbapp.DetailActivity.class);
-                startActivity(intent);
-            }
-        });
-      Calendar calender = Calendar.getInstance();// 获得一个日历的实例
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-        //算全部支出
-        for (ExpendRecord expendRecord : mExpendRecordList) {
-            try {
-                calender.setTime(sdf.parse(expendRecord.getDate()));
-                if((calender.get(Calendar.MONTH))==4){
-                    allexpend = allexpend + expendRecord.getMoney();
-                }
-
-            } catch (ParseException e) {
-                Log.d(TAG, "onCreate: "+e.getMessage());
-            }
-
-        }
-        tv_allexpend.setText(allexpend+"");
-
-
         editbudget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               AlertDialog.Builder dialog= new AlertDialog.Builder(FindActivity.this);
-                       dialog .setTitle("编辑m每月预算")
+                AlertDialog.Builder dialog = new AlertDialog.Builder(FindActivity.this);
+                dialog.setTitle("编辑每月预算")
                         .setView(dialog_ed_budget)
                         .setCancelable(false)
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                if(isMoneyNumber(dialog_ed_budget.getText().toString())){
+                                if (isMoneyNumber(dialog_ed_budget.getText().toString())) {
                                     tv_allbudget.setText(dialog_ed_budget.getText());
                                 }
+
+                                allbudget = Double.parseDouble(tv_allbudget.getText().toString());
+                                Log.d(TAG, "onResume:allbudget :" + allbudget);
+                                surplus = allbudget - allexpend;
+                                Log.d(TAG, "onResume: surplus " + surplus);
+                                tv_surplus.setText(surplus + "");
+
+                                PieData pd_surplus = new PieData("sloop", (float) surplus);
+                                PieData pd_expend = new PieData("sloop", (float) allexpend);
+                                datas.add(pd_surplus);
+                                datas.add(pd_expend);
+                                pieView.setData(datas);
                             }
                         })
                         .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -126,17 +171,8 @@ public class FindActivity extends AppCompatActivity {
                         })
                         .show();
             }
+
         });
-
-        allbudget=Double.parseDouble(tv_allbudget.getText().toString());
-        surplus=allbudget-allexpend;
-        tv_surplus.setText(surplus+"");
-
-        PieData pd_surplus = new PieData("sloop", (float)surplus);
-        PieData pd_expend =new PieData("sloop", (float)allexpend);
-        datas.add(pd_expend);
-        datas.add(pd_surplus);
-        pieView.setData(datas);
 
     }
 
@@ -149,15 +185,5 @@ public class FindActivity extends AppCompatActivity {
             return true;
         }
     }
-    @Override
-    protected void onStart(){
-        super.onStart();
-        Log.d(TAG, "onStart: ");
-    }
 
-    @Override
-    protected void onPause(){
-        super.onPause();
-        Log.d(TAG, "onPause: ");
-    }
 }

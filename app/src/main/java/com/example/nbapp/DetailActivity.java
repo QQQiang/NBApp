@@ -1,6 +1,8 @@
 package com.example.nbapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +30,8 @@ public class DetailActivity extends AppCompatActivity {
     private ImageButton detail;
     private ImageButton add;
     private ImageButton find;
+    private ImageButton my;
+
     private TextView tv_allincome;
     private TextView tv_allexpend;
 
@@ -47,7 +51,7 @@ public class DetailActivity extends AppCompatActivity {
         find=(ImageButton)findViewById(R.id.btn_menu_find);
         tv_allexpend = (TextView) findViewById(R.id.detail_allexpend);
         tv_allincome = (TextView) findViewById(R.id.detail_allincome);
-
+        my=(ImageButton)findViewById(R.id.btn_menu_my);
 
         detail.setImageResource(R.drawable.detail);
 
@@ -68,6 +72,15 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+        my.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailActivity.this, com.example.nbapp.UserActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //算全部收入支出
         for (IncomeRecord incomeRecord : mIncomeRecordList) {
             allincome = allincome + incomeRecord.getMoney();
         }
@@ -79,12 +92,12 @@ public class DetailActivity extends AppCompatActivity {
         tv_allincome.setText(allincome + "");
         tv_allexpend.setText(allexpend + "");
 
-        /*View view = this.getLayoutInflater().inflate((R.layout.detail), null);
-        ExpendRecordAdapter adapter = new ExpendRecordAdapter(DetailActivity.this, R.layout.detail_record_item,
-                mExpendRecordList);
-        ListView listview = (ListView) view.findViewById(R.id.List_view_detail);
-        listview.setAdapter(adapter);*/
-
+        RecyclerView recyclerView=(RecyclerView)findViewById(R.id.detail_recycler_view);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1,
+                StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        DetailAdapter adapter=new DetailAdapter(mExpendRecordList);
+        recyclerView.setAdapter(adapter);
     }
 
 
@@ -102,6 +115,12 @@ public class DetailActivity extends AppCompatActivity {
             mRecordList.add(record);
         }
     }*/
+       /*View view = this.getLayoutInflater().inflate((R.layout.detail), null);
+        ExpendRecordAdapter adapter = new ExpendRecordAdapter(DetailActivity.this, R.layout.detail_record_item,
+                mExpendRecordList);
+        ListView listview = (ListView) view.findViewById(R.id.List_view_detail);
+        listview.setAdapter(adapter);*/
+
 
          /*View view= this.getLayoutInflater().inflate((R.layout.detail), null);
         RecyclerView recyclerViewincome = (RecyclerView)view.findViewById(R.id.recycler_view_incomedetail);

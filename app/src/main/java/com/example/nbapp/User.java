@@ -20,7 +20,7 @@ public class User extends DataSupport{
     private String password;
     private String name;
     private String gender;
-    private Date birthday;
+    private String birthday;
     private String statu;
     private Date createtime;
     private Date modifytime;
@@ -59,9 +59,9 @@ public class User extends DataSupport{
         }
     public String getGender(){return gender;}
 
-    public void setBirthday(Date birthday){
+    public void setBirthday(String birthday){
         this.birthday=birthday;}
-    public Date getBirthday(){
+    public String getBirthday(){
         return birthday;}
 
     public String getStatu(){

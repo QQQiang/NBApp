@@ -35,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
 
+    static private String account;
+    static private String password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,93 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: ");
 
         LitePal.getDatabase();
+
+       /*IncomeType_Icon salary=new IncomeType_Icon();
+        IncomeType_Icon partjob=new IncomeType_Icon();
+        IncomeType_Icon investin=new IncomeType_Icon();
+        IncomeType_Icon redpacket=new IncomeType_Icon();
+        IncomeType_Icon other=new IncomeType_Icon();
+        salary.setType("工资");
+        partjob.setType("兼职");
+        investin.setType("理财");
+        redpacket.setType("红包");
+        other.setType("其他");
+
+        salary.setIconid(R.drawable.salary);
+        partjob.setIconid(R.drawable.partjob);
+        investin.setIconid(R.drawable.investin);
+        redpacket.setIconid(R.drawable.redpacket);
+        other.setIconid(R.drawable.other);
+
+        salary.save();
+        partjob.save();
+        investin.save();
+        redpacket.save();
+        other.save();*/
+
+       /*ExpendType_Icon cater=new ExpendType_Icon();
+        ExpendType_Icon beaty=new ExpendType_Icon();
+        ExpendType_Icon clothes=new ExpendType_Icon();
+        ExpendType_Icon communi=new ExpendType_Icon();
+        ExpendType_Icon digtal=new ExpendType_Icon();
+        ExpendType_Icon donate=new ExpendType_Icon();
+        ExpendType_Icon food=new ExpendType_Icon();
+        ExpendType_Icon gifts=new ExpendType_Icon();
+        ExpendType_Icon investout=new ExpendType_Icon();
+        ExpendType_Icon medical=new ExpendType_Icon();
+        ExpendType_Icon pet=new ExpendType_Icon();
+        ExpendType_Icon play=new ExpendType_Icon();
+        ExpendType_Icon travel=new ExpendType_Icon();
+        ExpendType_Icon study=new ExpendType_Icon();
+       // ExpendType_Icon other=new ExpendType_Icon();
+
+        cater.setType("餐饮");
+        clothes.setType("衣服");
+        beaty.setType("丽人");
+        communi.setType("通讯");
+        digtal.setType("数码");
+        donate.setType("捐赠");
+        food.setType("食物");
+        investout.setType("理财");
+        gifts.setType("礼物");
+        medical.setType("医疗");
+        pet.setType("宠物");
+        play.setType("娱乐");
+        travel.setType("旅行");
+        study.setType("学习");
+       // other.setType("其他");
+
+        cater.setIconid(R.drawable.cater);
+        clothes.setIconid(R.drawable.clothes);
+        beaty.setIconid(R.drawable.beaty);
+        communi.setIconid(R.drawable.communi);
+        digtal.setIconid(R.drawable.digital);
+        donate.setIconid(R.drawable.donate);
+        food.setIconid(R.drawable.food);
+        investout.setIconid(R.drawable.investout);
+        gifts.setIconid(R.drawable.gifts);
+        medical.setIconid(R.drawable.medical);
+        pet.setIconid(R.drawable.pet);
+        play.setIconid(R.drawable.play);
+        travel.setIconid(R.drawable.travel);
+        study.setIconid(R.drawable.study);
+       // other.setIconid(R.drawable.other);
+
+        cater.save();
+        clothes.save();
+        beaty.save();
+        communi.save();
+        digtal.save();
+        donate.save();
+        food.save();
+        investout.save();
+        gifts.save();
+        medical.save();
+        pet.save();
+        play.save();
+        travel.save();
+        study.save();
+      //  other.save();*/
 
         //初始化登录界面控件
         accountEdit=(EditText)findViewById(R.id.user_phone);
@@ -66,28 +156,44 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String  account=accountEdit.getText().toString();
-                String  password=passwordEdit.getText().toString();
+                boolean isSucessful=false;
+                account=accountEdit.getText().toString();
+                password=passwordEdit.getText().toString();
+                List<User> users=DataSupport.findAll(User.class);
 
-                if(password.equals("12345")&&account.equals("12345")){//用户名和密码正确
-                    editor=pref.edit();
-                    if(remeberPass.isChecked()){//检查复选框是否被选中
-                        editor.putBoolean("remeber_password",true);
-                        editor.putString("account",account);
-                        editor.putString("password",password);
-                    }
-                    else {
-                        editor.clear();
-                    }
-                    editor.apply();
+                Log.d(TAG, "onClick: "+account);
+                Log.d(TAG, "onClick: "+password);
+                for(User user:users){
 
-                    Intent intent=new Intent(LoginActivity.this,FindActivity.class);
-                    startActivity(intent);
+                    Log.d(TAG, "onClick: "+user.getPhone());
+                    Log.d(TAG, "onClick: "+user.getPassword());
+
+                    if(password.equals(user.getPassword())&& account.equals(user.getPhone())){//用户名和密码正确
+                        editor=pref.edit();
+                        if(remeberPass.isChecked()){//检查复选框是否被选中
+                            editor.putBoolean("remeber_password",true);
+                            editor.putString("account",account);
+                            editor.putString("password",password);
+
+                        }
+                        else {
+                            editor.clear();
+                        }
+                        editor.apply();
+
+                        Intent intent=new Intent(LoginActivity.this,UserActivity.class);
+                        intent.putExtra("account",account);
+                        startActivity(intent);
+                        isSucessful=true;
+                    }
                 }
-                else {//用户名或密码错误
+                if(!isSucessful){
+                    //用户名或密码错误
                     Toast.makeText(LoginActivity.this,"用户名或密码错误！",
                             Toast.LENGTH_SHORT).show();
                 }
+
+
             }
         });
 
@@ -95,7 +201,7 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this,DetailActivity.class);
+                Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
                 finish();
             }
