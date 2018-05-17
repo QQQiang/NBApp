@@ -20,17 +20,20 @@ import java.util.List;
  * Created by 强仔 on 2018/5/13.
  */
 
-public class IncomeRecordAdapter {
-    /*
-    extends RecyclerView.Adapter<IncomeRecordAdapter.ViewHolder>
+public class IncomeRecordAdapter extends RecyclerView.Adapter<IncomeRecordAdapter.ViewHolder>{
+
     private String TAG="IncomeRecordAdapter";
 
     private List<IncomeRecord> mRecordList;
     private Context mContext;
     private String WeekNames[] = {"星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
 
-    public IncomeRecordAdapter(List<IncomeRecord> mRecordList){
+    //声明自定义的监听接口
+    private OnRecyclerviewItemClickListener mOnRecyclerviewItemClickListener=null;
+
+    public IncomeRecordAdapter(List<IncomeRecord> mRecordList, OnRecyclerviewItemClickListener mOnRecyclerviewItemClickListener){
         this.mRecordList=mRecordList;
+        this.mOnRecyclerviewItemClickListener=mOnRecyclerviewItemClickListener;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -59,7 +62,7 @@ public class IncomeRecordAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mOnRecyclerviewItemClickListener.onItemClickListener(v, ((int) v.getTag()));
             }
         });
 
@@ -82,7 +85,7 @@ public class IncomeRecordAdapter {
             Log.d(TAG, "onBindViewHolder: "+e.getMessage());
         }
 
-        holder.detail_money.setText("-"+record.getMoney());
+        holder.detail_money.setText(""+record.getMoney());
         holder.detail_type_name.setText(record.getType());
         holder.detail_type_icon.setBackgroundResource(record.getIconid());
 
@@ -91,7 +94,7 @@ public class IncomeRecordAdapter {
     @Override
     public int getItemCount(){
         return mRecordList.size();
-    }*/
+    }
 
 }
 

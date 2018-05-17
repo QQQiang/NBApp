@@ -45,94 +45,6 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: ");
 
         LitePal.getDatabase();
-
-       /*IncomeType_Icon salary=new IncomeType_Icon();
-        IncomeType_Icon partjob=new IncomeType_Icon();
-        IncomeType_Icon investin=new IncomeType_Icon();
-        IncomeType_Icon redpacket=new IncomeType_Icon();
-        IncomeType_Icon other=new IncomeType_Icon();
-        salary.setType("工资");
-        partjob.setType("兼职");
-        investin.setType("理财");
-        redpacket.setType("红包");
-        other.setType("其他");
-
-        salary.setIconid(R.drawable.salary);
-        partjob.setIconid(R.drawable.partjob);
-        investin.setIconid(R.drawable.investin);
-        redpacket.setIconid(R.drawable.redpacket);
-        other.setIconid(R.drawable.other);
-
-        salary.save();
-        partjob.save();
-        investin.save();
-        redpacket.save();
-        other.save();*/
-
-       /*ExpendType_Icon cater=new ExpendType_Icon();
-        ExpendType_Icon beaty=new ExpendType_Icon();
-        ExpendType_Icon clothes=new ExpendType_Icon();
-        ExpendType_Icon communi=new ExpendType_Icon();
-        ExpendType_Icon digtal=new ExpendType_Icon();
-        ExpendType_Icon donate=new ExpendType_Icon();
-        ExpendType_Icon food=new ExpendType_Icon();
-        ExpendType_Icon gifts=new ExpendType_Icon();
-        ExpendType_Icon investout=new ExpendType_Icon();
-        ExpendType_Icon medical=new ExpendType_Icon();
-        ExpendType_Icon pet=new ExpendType_Icon();
-        ExpendType_Icon play=new ExpendType_Icon();
-        ExpendType_Icon travel=new ExpendType_Icon();
-        ExpendType_Icon study=new ExpendType_Icon();
-       // ExpendType_Icon other=new ExpendType_Icon();
-
-        cater.setType("餐饮");
-        clothes.setType("衣服");
-        beaty.setType("丽人");
-        communi.setType("通讯");
-        digtal.setType("数码");
-        donate.setType("捐赠");
-        food.setType("食物");
-        investout.setType("理财");
-        gifts.setType("礼物");
-        medical.setType("医疗");
-        pet.setType("宠物");
-        play.setType("娱乐");
-        travel.setType("旅行");
-        study.setType("学习");
-       // other.setType("其他");
-
-        cater.setIconid(R.drawable.cater);
-        clothes.setIconid(R.drawable.clothes);
-        beaty.setIconid(R.drawable.beaty);
-        communi.setIconid(R.drawable.communi);
-        digtal.setIconid(R.drawable.digital);
-        donate.setIconid(R.drawable.donate);
-        food.setIconid(R.drawable.food);
-        investout.setIconid(R.drawable.investout);
-        gifts.setIconid(R.drawable.gifts);
-        medical.setIconid(R.drawable.medical);
-        pet.setIconid(R.drawable.pet);
-        play.setIconid(R.drawable.play);
-        travel.setIconid(R.drawable.travel);
-        study.setIconid(R.drawable.study);
-       // other.setIconid(R.drawable.other);
-
-        cater.save();
-        clothes.save();
-        beaty.save();
-        communi.save();
-        digtal.save();
-        donate.save();
-        food.save();
-        investout.save();
-        gifts.save();
-        medical.save();
-        pet.save();
-        play.save();
-        travel.save();
-        study.save();
-      //  other.save();*/
-
         //初始化登录界面控件
         accountEdit=(EditText)findViewById(R.id.user_phone);
         passwordEdit=(EditText)findViewById(R.id.password);
@@ -210,3 +122,91 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 }
+
+
+/*IncomeType_Icon salary=new IncomeType_Icon();
+        IncomeType_Icon partjob=new IncomeType_Icon();
+        IncomeType_Icon investin=new IncomeType_Icon();
+        IncomeType_Icon redpacket=new IncomeType_Icon();
+        IncomeType_Icon other=new IncomeType_Icon();
+        salary.setType("工资");
+        partjob.setType("兼职");
+        investin.setType("理财");
+        redpacket.setType("红包");
+        other.setType("其他");
+
+        salary.setIconid(R.drawable.salary);
+        partjob.setIconid(R.drawable.partjob);
+        investin.setIconid(R.drawable.investin);
+        redpacket.setIconid(R.drawable.redpacket);
+        other.setIconid(R.drawable.other);
+
+        salary.save();
+        partjob.save();
+        investin.save();
+        redpacket.save();
+        other.save();*/
+
+       /*ExpendType_Icon cater=new ExpendType_Icon();
+        ExpendType_Icon beaty=new ExpendType_Icon();
+        ExpendType_Icon clothes=new ExpendType_Icon();
+        ExpendType_Icon communi=new ExpendType_Icon();
+        ExpendType_Icon digtal=new ExpendType_Icon();
+        ExpendType_Icon donate=new ExpendType_Icon();
+        ExpendType_Icon food=new ExpendType_Icon();
+        ExpendType_Icon gifts=new ExpendType_Icon();
+        ExpendType_Icon investout=new ExpendType_Icon();
+        ExpendType_Icon medical=new ExpendType_Icon();
+        ExpendType_Icon pet=new ExpendType_Icon();
+        ExpendType_Icon play=new ExpendType_Icon();
+        ExpendType_Icon travel=new ExpendType_Icon();
+        ExpendType_Icon study=new ExpendType_Icon();
+       ExpendType_Icon other=new ExpendType_Icon();
+
+        cater.setType("餐饮");
+        clothes.setType("衣服");
+        beaty.setType("丽人");
+        communi.setType("通讯");
+        digtal.setType("数码");
+        donate.setType("捐赠");
+        food.setType("食物");
+        investout.setType("理财");
+        gifts.setType("礼物");
+        medical.setType("医疗");
+        pet.setType("宠物");
+        play.setType("娱乐");
+        travel.setType("旅行");
+        study.setType("学习");
+       other.setType("其他");
+
+        cater.setIconid(R.drawable.cater);
+        clothes.setIconid(R.drawable.clothes);
+        beaty.setIconid(R.drawable.beaty);
+        communi.setIconid(R.drawable.communi);
+        digtal.setIconid(R.drawable.digital);
+        donate.setIconid(R.drawable.donate);
+        food.setIconid(R.drawable.food);
+        investout.setIconid(R.drawable.investout);
+        gifts.setIconid(R.drawable.gifts);
+        medical.setIconid(R.drawable.medical);
+        pet.setIconid(R.drawable.pet);
+        play.setIconid(R.drawable.play);
+        travel.setIconid(R.drawable.travel);
+        study.setIconid(R.drawable.study);
+       other.setIconid(R.drawable.other);
+
+        cater.save();
+        clothes.save();
+        beaty.save();
+        communi.save();
+        digtal.save();
+        donate.save();
+        food.save();
+        investout.save();
+        gifts.save();
+        medical.save();
+        pet.save();
+        play.save();
+        travel.save();
+        study.save();
+       other.save();*/

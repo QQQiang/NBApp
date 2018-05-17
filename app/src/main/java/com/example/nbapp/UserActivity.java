@@ -40,7 +40,9 @@ public class UserActivity extends AppCompatActivity {
     private ImageButton add;
     private ImageButton find;
     private ImageButton my;
-    private User user=new User();
+
+   static private User user=new User();
+
 
   /*  private SharedPreferences.Editor editor;
     private SharedPreferences pref;*/
@@ -104,6 +106,7 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         //加载默认值
         List<User> userList=DataSupport.findAll(User.class);
@@ -191,7 +194,7 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
-        tv_account.setText(account);
+        tv_account.setText(user.getPhone());
 
       //  editor.putString("account",tv_account.getText().toString());
 

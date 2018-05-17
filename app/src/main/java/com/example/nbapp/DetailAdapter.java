@@ -22,30 +22,33 @@ import java.util.List;
 
 public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder> {
 
-    private List<ExpendRecord> mRecordList;
+    private List<Record> mRecordList;
     private Context mContext;
     private String WeekNames[] = {"星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
 
-    public DetailAdapter(List<ExpendRecord> mRecordList){
-        this.mRecordList= mRecordList;
+
+    public DetailAdapter(List<Record> mRecordList){
+      this.mRecordList=mRecordList;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        /*TextView detail_date;
+        TextView detail_date;
         TextView detail_week;
         TextView detail_money;
-        ImageView detail_type_icon;*/
+        ImageView detail_type_icon;
         TextView detail_type_name;
 
         public ViewHolder(View view){
             super(view);
-            /*detail_date=(TextView)view.findViewById(R.id.detail_timeBar_date);
+            detail_date=(TextView)view.findViewById(R.id.detail_timeBar_date);
             detail_week=(TextView)view.findViewById(R.id.detail_timeBar_week);
             detail_money=(TextView)view.findViewById(R.id.detail_money);
-            detail_type_icon=(ImageView) view.findViewById(R.id.detail_type_icon);*/
+            detail_type_icon=(ImageView) view.findViewById(R.id.detail_type_icon);
             detail_type_name=(TextView)view.findViewById(R.id.detail_type_name);
         }
     }
+
+
 
     @Override
     public DetailAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -59,17 +62,15 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
 
             }
         });
-
         return new DetailAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(DetailAdapter.ViewHolder holder,int position){
-       ExpendRecord record = mRecordList.get(position);
-
+       Record record = mRecordList.get(position);
         holder.detail_type_name.setText(record.getType());
 
-        /*Calendar calender = Calendar.getInstance();// 获得一个日历的实例
+        Calendar calender = Calendar.getInstance();// 获得一个日历的实例
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
             calender.setTime(sdf.parse(record.getDate()));
@@ -81,7 +82,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
 
         holder.detail_money.setText(""+record.getMoney());
         holder.detail_type_name.setText(record.getType());
-        holder.detail_type_icon.setImageResource(record.getIconid());*/
+        holder.detail_type_icon.setImageResource(record.getIconid());
 
     }
 

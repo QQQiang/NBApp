@@ -32,7 +32,7 @@ public class ExpendType_IconAdapter extends RecyclerView.Adapter<ExpendType_Icon
 
     private List<ExpendType_Icon> mExpendTypeList;
     private Context mContext;
-
+    private ViewHolder temp=null;
 
     //声明自定义的监听接口
     private OnRecyclerviewItemClickListener mOnRecyclerviewItemClickListener=null;
@@ -66,13 +66,19 @@ public class ExpendType_IconAdapter extends RecyclerView.Adapter<ExpendType_Icon
         if(mContext ==null){
             mContext=parent.getContext();
         }
+
         View view= LayoutInflater.from(mContext).inflate(R.layout.add_type_item,parent,false);
         final ViewHolder holder =new ViewHolder(view);
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //将监听传递给自定义接口
+                if(temp!=null){
+                    temp.type_icon.setBackgroundResource(R.color.whitesmoke);
+                }
                 holder.type_icon.setBackgroundResource(R.color.sandybrown);
+                temp=holder;
                 mOnRecyclerviewItemClickListener.onItemClickListener(v, ((int) v.getTag()));
             }
         });

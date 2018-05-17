@@ -20,6 +20,7 @@ public class IncomeType_IconAdapter extends RecyclerView.Adapter<IncomeType_Icon
     private List<IncomeType_Icon> mIncomeTypeList;
 
     private Context mContext;
+    private IncomeType_IconAdapter.ViewHolder temp=null;
 
     //声明自定义的监听接口
     private OnRecyclerviewItemClickListener mOnRecyclerviewItemClickListener =null;
@@ -50,12 +51,16 @@ public class IncomeType_IconAdapter extends RecyclerView.Adapter<IncomeType_Icon
         }
 
         View view= LayoutInflater.from(mContext).inflate(R.layout.add_type_item,parent,false);
-        final ExpendType_IconAdapter.ViewHolder holder =new ExpendType_IconAdapter.ViewHolder(view);
+        final ViewHolder holder =new ViewHolder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //将监听传递给自定义接口
+                if(temp!=null){
+                    temp.type_icon.setBackgroundResource(R.color.whitesmoke);
+                }
                 holder.type_icon.setBackgroundResource(R.color.sandybrown);
+                temp=holder;
                 mOnRecyclerviewItemClickListener.onItemClickListener(v, ((int) v.getTag()));
             }
         });

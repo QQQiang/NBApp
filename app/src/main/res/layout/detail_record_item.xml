@@ -6,44 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
-
     <TextView
-        android:id="@+id/detail_type_name"
+        android:id="@+id/detail_timeBar_date"
         android:layout_width="50dp"
         android:layout_height="30dp"
-        android:text="相机"
-        android:textSize="@string/detail_record_textSize"
-        android:textColor="@color/black"
-        android:layout_centerInParent="true"
-       />
+        android:layout_marginTop="9dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="13sp"
+        android:text="5月13号"
+        android:gravity="center"
+        android:textColor="@color/gray"
+        />
 
+    <TextView
+        android:id="@+id/detail_timeBar_week"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/detail_timeBar_date"
+        android:text="星期四"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:textColor="@color/gray"
 
-
-</RelativeLayout>
-
- <!-- <TextView
-            android:id="@+id/detail_timeBar_date"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="13sp"
-            android:text="5月13号"
-            android:textColor="@color/gray"
-            />
-
-        <TextView
-            android:id="@+id/detail_timeBar_week"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/detail_timeBar_date"
-            android:text="星期四"
-            android:textSize="13sp"
-            android:textColor="@color/gray"
-
-            />
+        />
 
     <ImageView
         android:id="@+id/detail_type_icon"
@@ -53,32 +40,46 @@
         android:layout_toLeftOf="@+id/detail_type_name"
         android:layout_toStartOf="@+id/detail_type_name"
         android:src="@drawable/calculator"
-        android:layout_marginRight="11dp"
-        android:layout_marginEnd="11dp" />
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="5dp"
+        />
     <TextView
         android:id="@+id/detail_type_name"
         android:layout_width="50dp"
         android:layout_height="30dp"
         android:text="相机"
-        android:textSize="@string/detail_record_textSize"
+        android:textSize="15sp"
         android:textColor="@color/black"
-        android:layout_centerInParent="true"
-        android:layout_marginRight="78dp"
-        android:layout_marginEnd="78dp" />
+        android:layout_toLeftOf="@+id/detail_money"
+        android:gravity="center"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="5dp"
+        />
+
     <TextView
         android:id="@+id/detail_money"
-        android:layout_width="100dp"
+        android:layout_width="70dp"
         android:layout_height="30dp"
         android:text="0.00"
         android:gravity="right"
-        android:layout_toRightOf="@id/detail_type_name"
-        android:layout_marginRight="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="@string/detail_record_textSize"
+        android:layout_marginLeft="5dp"
+        android:textSize="16sp"
         android:textColor="@color/black"
         />
+
+
+</RelativeLayout>
+
+ <!--
 
 </RelativeLayout>
     <TextView

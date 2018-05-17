@@ -50,6 +50,7 @@ public class FindActivity extends AppCompatActivity {
 
     private  ArrayList<PieData> datas = new ArrayList<>();
 
+
     //使用sharedpreferences对象完成记住预算功能
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
