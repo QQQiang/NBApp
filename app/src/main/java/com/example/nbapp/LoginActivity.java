@@ -44,7 +44,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Log.d(TAG, "onCreate: ");
 
+
         LitePal.getDatabase();
+
         //初始化登录界面控件
         accountEdit=(EditText)findViewById(R.id.user_phone);
         passwordEdit=(EditText)findViewById(R.id.password);
@@ -73,12 +75,8 @@ public class LoginActivity extends AppCompatActivity {
                 password=passwordEdit.getText().toString();
                 List<User> users=DataSupport.findAll(User.class);
 
-                Log.d(TAG, "onClick: "+account);
-                Log.d(TAG, "onClick: "+password);
                 for(User user:users){
 
-                    Log.d(TAG, "onClick: "+user.getPhone());
-                    Log.d(TAG, "onClick: "+user.getPassword());
 
                     if(password.equals(user.getPassword())&& account.equals(user.getPhone())){//用户名和密码正确
                         editor=pref.edit();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
     <dbname value="SoRich"></dbname>
-    <version value="11"></version>
+    <version value="16"></version>
 
     <list>
         <mapping class="com.example.nbapp.User"></mapping>
@@ -10,6 +10,7 @@
         <mapping class="com.example.nbapp.IncomeType_Icon"></mapping>
         <mapping class="com.example.nbapp.ExpendType_Icon"></mapping>
         <mapping class="com.example.nbapp.Record"></mapping>
+
 
     </list>
 </litepal>

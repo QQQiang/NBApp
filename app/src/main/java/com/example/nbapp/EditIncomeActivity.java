@@ -3,18 +3,20 @@ package com.example.nbapp;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.DatePicker;
 
 import org.litepal.crud.DataSupport;
 
@@ -24,7 +26,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class AddIncomeActivity extends AppCompatActivity {
+public class EditIncomeActivity extends AppCompatActivity {
+
     private String TAG = "AddIncomeActivity";
 
     //声明控件
@@ -65,7 +68,7 @@ public class AddIncomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_income);
+        setContentView(R.layout.edit_income);
 
 
 
@@ -80,7 +83,7 @@ public class AddIncomeActivity extends AppCompatActivity {
         expend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AddIncomeActivity.this,AddExpendActivity.class);
+                Intent intent=new Intent(EditIncomeActivity.this,AddExpendActivity.class);
                 startActivity(intent);
             }
         });
@@ -88,7 +91,7 @@ public class AddIncomeActivity extends AppCompatActivity {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AddIncomeActivity.this,DetailActivity.class);
+                Intent intent=new Intent(EditIncomeActivity.this,DetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -101,7 +104,7 @@ public class AddIncomeActivity extends AppCompatActivity {
                         add_date.setText(year+"-"+(++month)+"-"+day);      //将选择的日期显示到TextView中,因为之前获取month直接使用，所以不需要+1，这个地方需要显示，所以+1
                     }
                 };
-                DatePickerDialog dialog = new DatePickerDialog(AddIncomeActivity.this, AlertDialog.THEME_HOLO_LIGHT, listener, year, month, day);//后边三个参数为显示dialog时默认的日期，月份从0开始，0-11对应1-12个月
+                DatePickerDialog dialog = new DatePickerDialog(EditIncomeActivity.this, AlertDialog.THEME_HOLO_LIGHT, listener, year, month, day);//后边三个参数为显示dialog时默认的日期，月份从0开始，0-11对应1-12个月
                 //设置日期最大值
                 dialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000L);
 
@@ -134,7 +137,7 @@ public class AddIncomeActivity extends AppCompatActivity {
                 record.setSign(1);
                 record.save();
 
-                Intent intent = new Intent(AddIncomeActivity.this, DetailActivity.class);
+                Intent intent = new Intent(EditIncomeActivity.this, DetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -180,3 +183,5 @@ public class AddIncomeActivity extends AppCompatActivity {
         redpacket.save();
         other.save();*/
 }
+
+

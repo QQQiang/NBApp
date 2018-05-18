@@ -3,33 +3,30 @@ package com.example.nbapp;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.support.v7.widget.ThemedSpinnerAdapter;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import org.litepal.crud.DataSupport;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class AddExpendActivity extends AppCompatActivity {
+public class EditExpendActivity extends AppCompatActivity {
     private String TAG = "AddExpendActivity";
 
     //声明控件
@@ -91,7 +88,7 @@ public class AddExpendActivity extends AppCompatActivity {
                     }
                 };
 
-                DatePickerDialog dialog = new DatePickerDialog(AddExpendActivity.this, AlertDialog.THEME_HOLO_LIGHT, listener, year, month, day);//后边三个参数为显示dialog时默认的日期，月份从0开始，0-11对应1-12个月
+                DatePickerDialog dialog = new DatePickerDialog(EditExpendActivity.this, AlertDialog.THEME_HOLO_LIGHT, listener, year, month, day);//后边三个参数为显示dialog时默认的日期，月份从0开始，0-11对应1-12个月
                 //设置日期最大值
                 dialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000L);
 
@@ -113,7 +110,7 @@ public class AddExpendActivity extends AppCompatActivity {
         income.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddExpendActivity.this, AddIncomeActivity.class);
+                Intent intent = new Intent(EditExpendActivity.this, AddIncomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -121,7 +118,7 @@ public class AddExpendActivity extends AppCompatActivity {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddExpendActivity.this, DetailActivity.class);
+                Intent intent = new Intent(EditExpendActivity.this, DetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -151,7 +148,7 @@ public class AddExpendActivity extends AppCompatActivity {
                 record.setIconid(expend_iconid);
                 record.save();
 
-                Intent intent = new Intent(AddExpendActivity.this, DetailActivity.class);
+                Intent intent = new Intent(EditExpendActivity.this, DetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -173,80 +170,5 @@ public class AddExpendActivity extends AppCompatActivity {
         month = cal.get(Calendar.MONTH);   //获取到的月份是从0开始计数
         day = cal.get(Calendar.DAY_OF_MONTH);
     }
+
 }
-
-
-
-
-
-
-
-
-
-     /*ExpendType_Icon cater=new ExpendType_Icon();
-        ExpendType_Icon beaty=new ExpendType_Icon();
-        ExpendType_Icon clothes=new ExpendType_Icon();
-        ExpendType_Icon communi=new ExpendType_Icon();
-        ExpendType_Icon digtal=new ExpendType_Icon();
-        ExpendType_Icon donate=new ExpendType_Icon();
-        ExpendType_Icon food=new ExpendType_Icon();
-        ExpendType_Icon gifts=new ExpendType_Icon();
-        ExpendType_Icon investout=new ExpendType_Icon();
-        ExpendType_Icon medical=new ExpendType_Icon();
-        ExpendType_Icon pet=new ExpendType_Icon();
-        ExpendType_Icon play=new ExpendType_Icon();
-        ExpendType_Icon travel=new ExpendType_Icon();
-        ExpendType_Icon study=new ExpendType_Icon();
-        ExpendType_Icon other=new ExpendType_Icon();
-
-        cater.setType("餐饮");
-        clothes.setType("衣服");
-        beaty.setType("丽人");
-        communi.setType("通讯");
-        digtal.setType("数码");
-        donate.setType("捐赠");
-        food.setType("食物");
-        investout.setType("理财");
-        gifts.setType("礼物");
-        medical.setType("医疗");
-        pet.setType("宠物");
-        play.setType("娱乐");
-        travel.setType("旅行");
-        study.setType("学习");
-        other.setType("其他");
-
-        cater.setIconid(R.drawable.cater);
-        clothes.setIconid(R.drawable.clothes);
-        beaty.setIconid(R.drawable.beaty);
-        communi.setIconid(R.drawable.communi);
-        digtal.setIconid(R.drawable.digital);
-        donate.setIconid(R.drawable.donate);
-        food.setIconid(R.drawable.food);
-        investout.setIconid(R.drawable.investout);
-        gifts.setIconid(R.drawable.gifts);
-        medical.setIconid(R.drawable.medical);
-        pet.setIconid(R.drawable.pet);
-        play.setIconid(R.drawable.play);
-        travel.setIconid(R.drawable.travel);
-        study.setIconid(R.drawable.study);
-        other.setIconid(R.drawable.other);
-
-        cater.save();
-        clothes.save();
-        beaty.save();
-        communi.save();
-        digtal.save();
-        donate.save();
-        food.save();
-        investout.save();
-        gifts.save();
-        medical.save();
-        pet.save();
-        play.save();
-        travel.save();
-        study.save();
-        other.save();*/
-
-
-
-

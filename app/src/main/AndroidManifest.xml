@@ -13,6 +13,7 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -23,10 +24,18 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UserActivity">
             <action android:name="com.example.nbapp.ACTION_STAERT" />
+
             <category android:name="android.intent.category.DEFAULT" />
             <category android:name="android.intent.category.LOGINTOUSER" />
-
         </activity>
+        <activity
+            android:name=".EditIncomeActivity"
+            android:label="@string/title_activity_edit_income"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".EditExpendActivity"
+            android:label="@string/title_activity_edit_expend"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -25,7 +25,7 @@
             android:orientation="horizontal">
 
             <ImageButton
-                    android:id="@+id/record_select"
+                    android:id="@+id/record_calender"
                     android:layout_width="47dp"
                     android:layout_height="30dp"
                     android:layout_marginBottom="5dp"
@@ -34,7 +34,7 @@
                     android:layout_marginTop="5dp"
                     android:background="@color/transparent"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/select" />
+                    android:src="@drawable/calender" />
 
             <TextView
                 android:id="@+id/tv_income"
@@ -47,7 +47,7 @@
                 android:background="@color/transparent"
                 android:text="收入"
                 android:textSize="15sp"
-                android:textColor="@color/gray_8f"
+                android:textColor="@color/black"
                 />
 
             <TextView
@@ -61,8 +61,8 @@
                 android:layout_weight="1"
                 android:background="@color/transparent"
                 android:gravity="right"
-                android:text="0.89"
-                android:textColor="@color/gray_8f"
+                android:text="0.00"
+                android:textColor="@color/black"
                 android:textSize="22sp" />
 
             <TextView
@@ -253,6 +253,29 @@
             android:layout_below="@id/detail_hintBar"
             android:layout_above="@id/menu_bottom"
             />
+
+    <TextView
+        android:id="@+id/show_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/detail_hintBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:text="2018-5"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:id="@+id/all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/detail_hintBar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="All" />
 
 </RelativeLayout>
 
