@@ -83,8 +83,6 @@ public class AddExpendActivity extends AppCompatActivity {
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
                     public void onDateSet(DatePicker arg0, int year, int month, int day) {
                         add_date.setText(year + "-" + (++month) + "-" + day);      //将选择的日期显示到TextView中,因为之前获取month直接使用，所以不需要+1，这个地方需要显示，所以+1
@@ -149,6 +147,17 @@ public class AddExpendActivity extends AppCompatActivity {
                 record.setMoney(expend_money);
                 record.setType(expend_type);
                 record.setIconid(expend_iconid);
+
+                Calendar calender = Calendar.getInstance();// 获得一个日历的实例
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    calender.setTime(sdf.parse(expend_date));
+                    record.setYear(calender.get(Calendar.YEAR));
+                    record.setMonth(calender.get(Calendar.MONTH)+1);
+                } catch (ParseException e) {
+                    Log.d(TAG, "onClick: "+e.getMessage());
+                }
+
                 record.save();
 
                 Intent intent = new Intent(AddExpendActivity.this, DetailActivity.class);
@@ -162,7 +171,6 @@ public class AddExpendActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         ExpendType_IconAdapter adapter = new ExpendType_IconAdapter(mExpendTypeList, onRecyclerviewItemClickListener);
         recyclerView.setAdapter(adapter);
-
 
     }
 

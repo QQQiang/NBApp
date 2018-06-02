@@ -34,6 +34,7 @@ public class FindActivity extends AppCompatActivity {
     private ImageButton add;
     private ImageButton find;
     private ImageButton my;
+    private ImageButton bil;
 
     private PieView pieView;
     private TextView tv_surplus;
@@ -43,7 +44,7 @@ public class FindActivity extends AppCompatActivity {
     private EditText dialog_ed_budget;
 
 
-    private List<ExpendRecord> mExpendRecordList;
+    private List<Record> mExpendRecordList;
     private double allexpend;
     private double allbudget;
     private double surplus;
@@ -64,12 +65,13 @@ public class FindActivity extends AppCompatActivity {
 
         View view = this.getLayoutInflater().inflate((R.layout.find), null);
 
-        mExpendRecordList = DataSupport.findAll(ExpendRecord.class);
+        mExpendRecordList = DataSupport.findAll(Record.class);
 
         add = (ImageButton)findViewById(R.id.btn_menu_add);
         detail = (ImageButton) findViewById(R.id.btn_menu_detail);
         find = (ImageButton) findViewById(R.id.btn_menu_find);
         my=(ImageButton)findViewById(R.id.btn_menu_my);
+        bil=(ImageButton)findViewById(R.id.btn_menu_bil);
 
         pieView = (PieView) findViewById(R.id.pie_view);
         tv_surplus = (TextView) findViewById(R.id.surplus);
@@ -78,7 +80,7 @@ public class FindActivity extends AppCompatActivity {
         editbudget = (Button) findViewById(R.id.edit_budget);
         dialog_ed_budget = new EditText(FindActivity.this);
 
-        find.setImageResource(R.drawable.find);
+        find.setBackgroundResource(R.color.sandybrown);
 
         detail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,12 +98,20 @@ public class FindActivity extends AppCompatActivity {
             }
         });
 
+        bil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FindActivity.this, com.example.nbapp.BilActivity.class);
+                startActivity(intent);
+            }
+        });
+
             //算当月全部支出
         Calendar calender = Calendar.getInstance();// 获得一个日历的实例
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 
-        for (ExpendRecord expendRecord : mExpendRecordList) {
+        for (Record expendRecord : mExpendRecordList) {
             try {
                 calender.setTime(sdf.parse(expendRecord.getDate()));
                 if ((calender.get(Calendar.MONTH)) == 4) {
@@ -122,10 +132,12 @@ public class FindActivity extends AppCompatActivity {
         Log.d(TAG, "surplus " + surplus);
         tv_surplus.setText(surplus + "");
 
-        PieData pd_surplus = new PieData("sloop", (float) surplus);
-        PieData pd_expend = new PieData("sloop", (float) allexpend);
+        PieData pd_surplus = new PieData("sloop", (float) 20);
+        PieData pd_expend = new PieData("sloop", (float) 30);
+        PieData pd_surplu = new PieData("sloop", (float) 50);
         datas.add(pd_surplus);
         datas.add(pd_expend);
+        datas.add(pd_surplu);
         pieView.setData(datas);
 
         add.setOnClickListener(new View.OnClickListener() {

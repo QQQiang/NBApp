@@ -16,6 +16,7 @@ import static com.example.nbapp.R.drawable.calender;
  */
 
 public class Record extends DataSupport{
+    private String record_id;
     private int sign;//1标识income，2标识expend
     private double money;
     private String type;
@@ -24,10 +25,13 @@ public class Record extends DataSupport{
     private  int year;
     private int month;
 
-    public int getYear(){
-        return year;
+    public Record(){
+        this.record_id=IDUtils.createID();
     }
 
+    public String getRecord_id(){
+        return record_id;
+    }
 
     public void setSign(int sign){
         if(sign==2 || sign==1){
@@ -41,8 +45,6 @@ public class Record extends DataSupport{
     public int getSign(){
         return sign;
     }
-
-
 
     public double getMoney(){
         return money;
@@ -75,6 +77,21 @@ public class Record extends DataSupport{
         this.year=calender.get(Calendar.YEAR);
     }
 
+    public void setYear(int year){
+        this.year=year;
+    }
+
+    public int getYear(){
+        return year;
+    }
+
+    public void setMonth(int month){
+        this.month=month;
+    }
+
+    public int getMonth(){
+        return month;
+    }
     public int getIconid(){
         return iconid;
     }

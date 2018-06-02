@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.nbapp.FindActivity">
 
+
     <TextView
         android:id="@+id/find_title"
         android:layout_width="match_parent"
@@ -19,11 +20,70 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp" />
 
+    <LinearLayout
+        android:id="@+id/hintBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/find_title"
+        android:background="@color/sandybrown"
+        android:orientation="horizontal">
+
+
+
+        <TextView
+            android:id="@+id/detail_bug"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:text="预算"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/detail_allincome"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:text="支出"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+
+
+        <TextView
+            android:id="@+id/detail_allexpend"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:text="收入"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+    </LinearLayout>
+
     <com.example.nbapp.PieView
         android:id="@+id/pie_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@id/find_title"/>
+        android:layout_below="@id/hintBar"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,19 +95,16 @@
 
     <TextView
         android:id="@+id/tv1"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="70dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="剩余预算:"
-        android:textSize="17sp"
-        android:textColor="@color/black"
+        android:background="@color/yellow"
         />
 
     <TextView
@@ -56,31 +113,28 @@
         android:layout_height="30dp"
         android:ems="10"
         android:inputType="number"
-        android:text="0.0"
+        android:text="丽人 20%"
         android:textSize="17sp"
         android:textColor="@color/black"
-        android:gravity="right"
+        android:gravity="center"
         android:layout_toRightOf="@+id/tv1"
         android:layout_toEndOf="@+id/tv1"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         />
         <TextView
             android:id="@+id/tv2"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@id/tv1"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="70dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="全部预算："
-            android:textSize="15sp"
-            android:textColor="@color/gray"
+            android:background="@color/grassgreen"
             />
 
         <TextView
@@ -89,10 +143,10 @@
             android:layout_height="30dp"
             android:ems="10"
             android:inputType="number"
-            android:text="0.0"
-            android:textSize="15sp"
-            android:textColor="@color/gray"
-            android:gravity="right"
+            android:text="旅行 30%"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:gravity="center"
             android:layout_toRightOf="@+id/tv2"
             android:layout_toEndOf="@+id/tv2"
             android:layout_below="@id/surplus"
@@ -103,19 +157,16 @@
 
         <TextView
             android:id="@+id/tv3"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@id/tv2"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="7.5dp"
             android:layout_marginLeft="70dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="全部支出："
-            android:textSize="15sp"
-            android:textColor="@color/gray"
+            android:background="@color/skyblue"
             />
 
         <TextView
@@ -124,10 +175,10 @@
             android:layout_height="30dp"
             android:ems="10"
             android:inputType="number"
-            android:text="0.0"
-            android:textSize="15sp"
-            android:textColor="@color/gray"
-            android:gravity="right"
+            android:text="餐饮 50%"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:gravity="center"
             android:layout_toRightOf="@+id/tv3"
             android:layout_toEndOf="@+id/tv3"
             android:layout_below="@id/allbudget"
@@ -140,7 +191,7 @@
             android:id="@+id/edit_budget"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:text="编辑预算"
+            android:text=""
             android:textColor="@color/gray"
             android:textSize="15sp"
             android:background="@color/transparent"
@@ -153,9 +204,10 @@
         android:id="@+id/menu_bottom"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:background="@color/transparent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+       android:layout_alignParentTop="true"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentStart="true"
+       android:layout_marginTop="10dp">
         <LinearLayout
             android:layout_height="60dp"
             android:layout_width="match_parent"
@@ -196,6 +248,40 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="3dp"
                     />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/btn_menu_bil"
+                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@null"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:src="@drawable/bil"
+                    android:scaleType="fitCenter"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="账单"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_below="@id/btn_menu_bil"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="5dp"
+                    />
+
+
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="0dp"
@@ -306,5 +392,35 @@
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="85dp"
+        android:layout_marginRight="85dp"
+        android:text="当月"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:background="@color/sandybrown"
+        />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignRight="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="13dp"
+        android:text="当年"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
 
 </RelativeLayout>

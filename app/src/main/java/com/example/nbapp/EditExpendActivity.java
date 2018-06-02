@@ -31,7 +31,6 @@ public class EditExpendActivity extends AppCompatActivity {
 
     //声明控件
     private Button expend;
-    private Button income;
     private ImageButton close;
     private ImageButton save;
     private Button add_date;
@@ -48,14 +47,15 @@ public class EditExpendActivity extends AppCompatActivity {
     private String expend_type;
     private String expend_date;
     private int expend_iconid;
-    private List<ExpendType_Icon> mExpendTypeList = DataSupport.findAll(ExpendType_Icon.class);
+
+    private String oldid;
 
     //声明自定义的监听接口
     private OnRecyclerviewItemClickListener onRecyclerviewItemClickListener = new OnRecyclerviewItemClickListener() {
         @Override
         public void onItemClickListener(View v, int position) {
             //这里的view就是我们点击的view  position就是点击的position
-            ExpendType_Icon expendtype = mExpendTypeList.get(position);
+            ExpendType_Icon expendtype = GlobalVariabls.mExpendTypeList.get(position);
             expend_type = expendtype.getType();
             expend_iconid = expendtype.getIconid();
             Log.d(TAG, "onItemClickListener: "+position+" "+expend_iconid );
@@ -66,16 +66,24 @@ public class EditExpendActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_expend);
+        setContentView(R.layout.edit_expend);
+
+        Intent intent=getIntent();
+        expend_date=intent.getStringExtra("record_date");
+        expend_money=intent.getDoubleExtra("record_money",0.0);
+        oldid=intent.getStringExtra("record_id");
+
 
         //定义控件
-        income = (Button) findViewById(R.id.btn_add_income);
         expend = (Button) findViewById(R.id.btn_add_expend);
         close = (ImageButton) findViewById(R.id.btn_close);
         save = (ImageButton) findViewById(R.id.save);
         add_date = (Button) findViewById(R.id.add_date);
         add_money = (EditText) findViewById(R.id.add_money);
         date = (ImageView) findViewById(R.id.date);
+
+        add_date.setText(expend_date);
+        add_money.setText(expend_money+"");
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,14 +115,6 @@ public class EditExpendActivity extends AppCompatActivity {
             }
         });
 
-        income.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EditExpendActivity.this, AddIncomeActivity.class);
-                startActivity(intent);
-            }
-        });
-
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,27 +126,24 @@ public class EditExpendActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(add_money.getText().toString().isEmpty()){
-                    expend_money=0;
-                }else {
-                    Log.d(TAG, "onClick: "+add_money.getText().toString());
-                    expend_money = Double.parseDouble(add_money.getText().toString());
-                }
 
-                expend_date = add_date.getText().toString();
-
-                if(expend_type==null){
-                    expend_type=mExpendTypeList.get(mExpendTypeList.size()-1).getType();
-                    expend_iconid=mExpendTypeList.get(mExpendTypeList.size()-1).getIconid();
-                }
-
-                Record record = new Record();
+                Record record=new Record();
                 record.setSign(2);
                 record.setDate(expend_date);
                 record.setMoney(expend_money);
                 record.setType(expend_type);
                 record.setIconid(expend_iconid);
-                record.save();
+
+                Calendar calender = Calendar.getInstance();// 获得一个日历的实例
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    calender.setTime(sdf.parse(expend_date));
+                    record.setYear(calender.get(Calendar.YEAR));
+                    record.setMonth(calender.get(Calendar.MONTH)+1);
+                } catch (ParseException e) {
+                    Log.d(TAG, "onClick: "+e.getMessage());
+                }
+                record.updateAll("record_id=?",oldid);
 
                 Intent intent = new Intent(EditExpendActivity.this, DetailActivity.class);
                 startActivity(intent);
@@ -157,7 +154,7 @@ public class EditExpendActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view_expendtype);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        ExpendType_IconAdapter adapter = new ExpendType_IconAdapter(mExpendTypeList, onRecyclerviewItemClickListener);
+        ExpendType_IconAdapter adapter = new ExpendType_IconAdapter(GlobalVariabls.mExpendTypeList, onRecyclerviewItemClickListener);
         recyclerView.setAdapter(adapter);
 
 

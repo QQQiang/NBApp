@@ -40,6 +40,7 @@ public class UserActivity extends AppCompatActivity {
     private ImageButton add;
     private ImageButton find;
     private ImageButton my;
+    private ImageButton bil;
 
    static private User user=new User();
 
@@ -76,11 +77,12 @@ public class UserActivity extends AppCompatActivity {
         detail = (ImageButton) findViewById(R.id.btn_menu_detail);
         find = (ImageButton) findViewById(R.id.btn_menu_find);
         my=(ImageButton)findViewById(R.id.btn_menu_my);
+        bil=(ImageButton)findViewById(R.id.btn_menu_bil);
 
         Intent intent=getIntent();
         account=intent.getStringExtra("account");
 
-        my.setImageResource(R.drawable.my);
+        my.setBackgroundResource(R.color.sandybrown);
 
         detail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +105,14 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View v) {
                 add.setImageResource(R.drawable.back);
                 Intent intent = new Intent(UserActivity.this, com.example.nbapp.AddExpendActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        bil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserActivity.this, com.example.nbapp.BilActivity.class);
                 startActivity(intent);
             }
         });

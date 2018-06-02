@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,8 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Log.d(TAG, "onCreate: ");
 
-
         LitePal.getDatabase();
+
 
         //初始化登录界面控件
         accountEdit=(EditText)findViewById(R.id.user_phone);
@@ -122,30 +123,33 @@ public class LoginActivity extends AppCompatActivity {
 }
 
 
-/*IncomeType_Icon salary=new IncomeType_Icon();
+/* DataSupport.deleteAll(ExpendType_Icon.class);
+        DataSupport.deleteAll(IncomeType_Icon.class);
+
+        IncomeType_Icon salary=new IncomeType_Icon();
         IncomeType_Icon partjob=new IncomeType_Icon();
         IncomeType_Icon investin=new IncomeType_Icon();
         IncomeType_Icon redpacket=new IncomeType_Icon();
-        IncomeType_Icon other=new IncomeType_Icon();
+        IncomeType_Icon other_i=new IncomeType_Icon();
         salary.setType("工资");
         partjob.setType("兼职");
         investin.setType("理财");
         redpacket.setType("红包");
-        other.setType("其他");
+        other_i.setType("其他");
 
         salary.setIconid(R.drawable.salary);
         partjob.setIconid(R.drawable.partjob);
         investin.setIconid(R.drawable.investin);
         redpacket.setIconid(R.drawable.redpacket);
-        other.setIconid(R.drawable.other);
+        other_i.setIconid(R.drawable.other);
 
         salary.save();
         partjob.save();
         investin.save();
         redpacket.save();
-        other.save();*/
+        other_i.save();
 
-       /*ExpendType_Icon cater=new ExpendType_Icon();
+        ExpendType_Icon cater=new ExpendType_Icon();
         ExpendType_Icon beaty=new ExpendType_Icon();
         ExpendType_Icon clothes=new ExpendType_Icon();
         ExpendType_Icon communi=new ExpendType_Icon();
@@ -159,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
         ExpendType_Icon play=new ExpendType_Icon();
         ExpendType_Icon travel=new ExpendType_Icon();
         ExpendType_Icon study=new ExpendType_Icon();
-       ExpendType_Icon other=new ExpendType_Icon();
+        ExpendType_Icon other_e=new ExpendType_Icon();
 
         cater.setType("餐饮");
         clothes.setType("衣服");
@@ -175,7 +179,7 @@ public class LoginActivity extends AppCompatActivity {
         play.setType("娱乐");
         travel.setType("旅行");
         study.setType("学习");
-       other.setType("其他");
+        other_e.setType("其他");
 
         cater.setIconid(R.drawable.cater);
         clothes.setIconid(R.drawable.clothes);
@@ -191,7 +195,7 @@ public class LoginActivity extends AppCompatActivity {
         play.setIconid(R.drawable.play);
         travel.setIconid(R.drawable.travel);
         study.setIconid(R.drawable.study);
-       other.setIconid(R.drawable.other);
+        other_e.setIconid(R.drawable.other);
 
         cater.save();
         clothes.save();
@@ -207,4 +211,4 @@ public class LoginActivity extends AppCompatActivity {
         play.save();
         travel.save();
         study.save();
-       other.save();*/
+        other_e.save();*/

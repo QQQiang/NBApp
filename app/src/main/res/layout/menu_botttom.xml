@@ -49,6 +49,40 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
             <ImageButton
+                android:id="@+id/btn_menu_bil"
+                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:src="@drawable/bil"
+                android:scaleType="fitCenter"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账单"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_below="@id/btn_menu_bil"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="5dp"
+                />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageButton
                 android:id="@+id/btn_menu_add"
                 android:layout_height="30dp"
                 android:layout_width="wrap_content"

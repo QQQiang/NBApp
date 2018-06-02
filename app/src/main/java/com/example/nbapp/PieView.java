@@ -21,7 +21,11 @@ public class PieView extends View {
     // 颜色表
     private int sandybrown=getResources().getColor(R.color.sandybrown);
     private int white=Color.WHITE;
-    private int[] mColors={sandybrown,white};
+    private int yellow=getResources().getColor(R.color.yellow);
+    private int grassgreen=getResources().getColor(R.color.grassgreen);
+    private int skyblue=getResources().getColor(R.color.skyblue);
+    private int violet=getResources().getColor(R.color.violet);
+    private int[] mColors={yellow,grassgreen,skyblue,violet};
 
     // 饼状图初始绘制角度w
     private float mStartAngle = 0;

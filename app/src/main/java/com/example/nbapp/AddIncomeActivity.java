@@ -131,7 +131,17 @@ public class AddIncomeActivity extends AppCompatActivity {
                 record.setMoney(income_money);
                 record.setType(income_type);
                 record.setIconid(income_iconid);
-                record.setSign(1);
+                Calendar calender = Calendar.getInstance();// 获得一个日历的实例
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    calender.setTime(sdf.parse(income_date));
+                    record.setYear(calender.get(Calendar.YEAR));
+                    record.setMonth(calender.get(Calendar.MONTH)+1);
+                } catch (ParseException e) {
+                    Log.d(TAG, "onClick: "+e.getMessage());
+                }
+
+                record.setSign(1);//income为1
                 record.save();
 
                 Intent intent = new Intent(AddIncomeActivity.this, DetailActivity.class);

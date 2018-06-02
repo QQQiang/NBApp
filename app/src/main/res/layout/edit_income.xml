@@ -31,13 +31,6 @@
                 android:background="@color/transparent"
                 android:scaleType="fitCenter"
                 />
-            <View
-                android:id="@+id/center_line"
-                android:layout_height="30dp"
-                android:layout_width="1dp"
-                android:background="@color/transparent"
-                android:layout_centerInParent="true"
-                />
 
             <Button
                 android:id="@+id/btn_add_income"
@@ -48,24 +41,9 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="3dp"
                 android:background="@color/transparent"
-                android:layout_toLeftOf="@id/center_line"
+                android:layout_centerInParent="true"
                 android:text="收入"
                 android:textSize="16sp"
-                />
-
-            <Button
-                android:id="@+id/btn_add_expend"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/transparent"
-                android:layout_toRightOf="@id/center_line"
-                android:text="支出"
-                android:textSize="16sp"
-                android:textColor="@color/gray"
                 />
 
             <ImageButton

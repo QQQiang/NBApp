@@ -73,7 +73,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(DetailAdapter.ViewHolder holder,int position){
-       Record record = mRecordList.get(position);
+        Record record = mRecordList.get(position);
         holder.detail_type_name.setText(record.getType());
 
         Calendar calender = Calendar.getInstance();// 获得一个日历的实例

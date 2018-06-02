@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <TextView
+        android:id="@+id/find_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="账单"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:background="@color/sandybrown"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/surplus_hint"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="结余"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:background="@color/sandybrown"
+        android:gravity="center"
+        android:layout_below="@+id/find_title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/year_surplus"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="0.0"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:background="@color/sandybrown"
+        android:gravity="center"
+        android:layout_below="@+id/surplus_hint"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <TextView
+        android:id="@+id/show_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:text="2018"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true" />
+
+
+    <LinearLayout
+        android:id="@+id/bil_hintBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/year_surplus"
+        android:background="@color/sandybrown"
+        android:orientation="horizontal">
+
+
+
+        <TextView
+            android:id="@+id/tv_income"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/transparent"
+            android:text="收入"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/year_income"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="right"
+            android:text="0.0"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_expend"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.39"
+            android:background="@color/transparent"
+            android:text="支出"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/year_expend"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="right"
+            android:text="0.0"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+    android:id="@+id/tabletitle"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:layout_below="@id/bil_hintBar"
+    android:background="@color/transparent"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="月份"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="收入"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="支出"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="结余"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_bottomm"
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/floralwhite"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        >
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+            <ImageButton
+                android:id="@+id/btn_menu_detail"
+                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:background="@null"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/detail_drak"
+                android:scaleType="fitCenter"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="明细"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_below="@id/btn_menu_detail"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageButton
+                android:id="@+id/btn_menu_bil"
+                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:src="@drawable/bil"
+                android:scaleType="fitCenter"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账单"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_below="@id/btn_menu_bil"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="5dp"
+                />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageButton
+                android:id="@+id/btn_menu_add"
+                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:src="@drawable/add"
+                android:scaleType="fitCenter"
+                android:layout_weight="1"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="记录"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_below="@id/btn_menu_add"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="5dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageButton
+                android:id="@+id/btn_menu_find"
+                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:src="@drawable/find_dark"
+                android:scaleType="fitCenter"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发现"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_below="@id/btn_menu_find"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="5dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/btn_menu_my"
+                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:src="@drawable/my_dark"
+                android:scaleType="fitCenter"
+                android:layout_weight="1"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_below="@id/btn_menu_my"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="5dp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bil_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabletitle"
+
+        android:layout_above="@id/menu_bottomm"
+
+        />
+</RelativeLayout>
