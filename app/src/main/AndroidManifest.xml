@@ -13,17 +13,14 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".AddIncomeActivity" />
         <activity android:name=".AddExpendActivity" />
-        <activity android:name=".DetailActivity">
-
-        </activity>
-        <activity android:name=".FindActivity" >
-
-        </activity>
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".FindActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UserActivity">
             <action android:name="com.example.nbapp.ACTION_STAERT" />
@@ -38,10 +35,11 @@
         <activity
             android:name=".EditExpendActivity"
             android:label="@string/title_activity_edit_expend"
-            android:theme="@style/AppTheme" />i
-        <activity android:name=".BilActivity">
-
-        </activity>
+            android:theme="@style/AppTheme" />
+        i
+        <activity android:name=".BilActivity" />
+        <activity android:name=".FindincomeActivity" />
+        <activity android:name=".FindexpendActivity"></activity>
     </application>
 
 </manifest>

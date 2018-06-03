@@ -35,8 +35,10 @@ public class FindActivity extends AppCompatActivity {
     private ImageButton find;
     private ImageButton my;
     private ImageButton bil;
+    private Button bt_expend;
+    private Button bt_income;
 
-    private PieView pieView;
+    private PieView_bug pieView;
     private TextView tv_surplus;
     private TextView tv_allexpend;
     private Button editbudget;
@@ -61,22 +63,25 @@ public class FindActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.find);
 
-        Log.d(TAG, "onCreate: ");
 
-        View view = this.getLayoutInflater().inflate((R.layout.find), null);
 
-        mExpendRecordList = DataSupport.findAll(Record.class);
+        mExpendRecordList = DataSupport.where("sign=?",2+"").find(Record.class);
+
+
 
         add = (ImageButton)findViewById(R.id.btn_menu_add);
         detail = (ImageButton) findViewById(R.id.btn_menu_detail);
         find = (ImageButton) findViewById(R.id.btn_menu_find);
         my=(ImageButton)findViewById(R.id.btn_menu_my);
         bil=(ImageButton)findViewById(R.id.btn_menu_bil);
+        bt_expend=(Button)findViewById(R.id.bt_expend);
+        bt_income=(Button)findViewById(R.id.bt_income);
 
-        pieView = (PieView) findViewById(R.id.pie_view);
+
+        pieView = (PieView_bug) findViewById(R.id.pie_view);
         tv_surplus = (TextView) findViewById(R.id.surplus);
         tv_allbudget = (TextView) findViewById(R.id.allbudget);
-        tv_allexpend = (TextView) findViewById(R.id.allexpend);
+        tv_allexpend = (TextView) findViewById(R.id.allexpendf);
         editbudget = (Button) findViewById(R.id.edit_budget);
         dialog_ed_budget = new EditText(FindActivity.this);
 
@@ -106,48 +111,34 @@ public class FindActivity extends AppCompatActivity {
             }
         });
 
-            //算当月全部支出
-        Calendar calender = Calendar.getInstance();// 获得一个日历的实例
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-
-        for (Record expendRecord : mExpendRecordList) {
-            try {
-                calender.setTime(sdf.parse(expendRecord.getDate()));
-                if ((calender.get(Calendar.MONTH)) == 4) {
-                    allexpend = allexpend + expendRecord.getMoney();
-                }
-
-            } catch (ParseException e) {
-                Log.d(TAG, "onCreate: " + e.getMessage());
-            }
-
-        }
-        tv_allexpend.setText(allexpend + "");
-
-        //预先设置饼状图
-        allbudget = Double.parseDouble(tv_allbudget.getText().toString());
-        Log.d(TAG, "allbudget :" + allbudget);
-        surplus = allbudget - allexpend;
-        Log.d(TAG, "surplus " + surplus);
-        tv_surplus.setText(surplus + "");
-
-        PieData pd_surplus = new PieData("sloop", (float) 20);
-        PieData pd_expend = new PieData("sloop", (float) 30);
-        PieData pd_surplu = new PieData("sloop", (float) 50);
-        datas.add(pd_surplus);
-        datas.add(pd_expend);
-        datas.add(pd_surplu);
-        pieView.setData(datas);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                add.setImageResource(R.drawable.back);
                 Intent intent = new Intent(FindActivity.this, com.example.nbapp.AddExpendActivity.class);
                 startActivity(intent);
             }
         });
+
+        bt_expend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bt_expend.setTextColor(getResources().getColor(R.color.black));
+                Intent intent = new Intent(FindActivity.this, com.example.nbapp.FindexpendActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        bt_income.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bt_expend.setTextColor(getResources().getColor(R.color.black));
+                Intent intent = new Intent(FindActivity.this, com.example.nbapp.FindincomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        setMonthExpend();
+        showPieView();
 
         editbudget.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,18 +153,7 @@ public class FindActivity extends AppCompatActivity {
                                 if (isMoneyNumber(dialog_ed_budget.getText().toString())) {
                                     tv_allbudget.setText(dialog_ed_budget.getText());
                                 }
-
-                                allbudget = Double.parseDouble(tv_allbudget.getText().toString());
-                                Log.d(TAG, "onResume:allbudget :" + allbudget);
-                                surplus = allbudget - allexpend;
-                                Log.d(TAG, "onResume: surplus " + surplus);
-                                tv_surplus.setText(surplus + "");
-
-                                PieData pd_surplus = new PieData("sloop", (float) surplus);
-                                PieData pd_expend = new PieData("sloop", (float) allexpend);
-                                datas.add(pd_surplus);
-                                datas.add(pd_expend);
-                                pieView.setData(datas);
+                                showPieView();
                             }
                         })
                         .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -187,6 +167,8 @@ public class FindActivity extends AppCompatActivity {
 
         });
 
+
+
     }
 
     public static boolean isMoneyNumber(String str){
@@ -197,6 +179,45 @@ public class FindActivity extends AppCompatActivity {
         }else{
             return true;
         }
+    }
+
+    private void setMonthExpend(){
+
+        allexpend=0;
+        //算当月全部支出
+        Calendar calender = Calendar.getInstance();// 获得一个日历的实例
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        for (Record expendRecord : mExpendRecordList) {
+            try {
+                calender.setTime(sdf.parse(expendRecord.getDate()));
+                if ((calender.get(Calendar.MONTH)) == 4) {
+                    allexpend = allexpend + expendRecord.getMoney();
+                }
+            } catch (ParseException e) {
+                Log.d(TAG, "onCreate: " + e.getMessage());
+            }
+
+        }
+        tv_allexpend.setText(allexpend + "");
+    }
+
+    private void showPieView(){
+        surplus=0;
+
+        //预先设置饼状图
+        allbudget = Double.parseDouble(tv_allbudget.getText().toString());
+        Log.d(TAG, "allbudget :" + allbudget);
+        surplus = allbudget - allexpend;
+        Log.d(TAG, "surplus " + surplus);
+        tv_surplus.setText(surplus + "");
+
+        PieData pd_surplus = new PieData("sloop", (float) surplus);
+        PieData pd_expend = new PieData("sloop", (float) allexpend);
+        datas.add(pd_surplus);
+        datas.add(pd_expend);
+        pieView.setData(datas);
+
     }
 
 }

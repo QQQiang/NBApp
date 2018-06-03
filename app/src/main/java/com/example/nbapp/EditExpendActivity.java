@@ -144,7 +144,6 @@ public class EditExpendActivity extends AppCompatActivity {
                     Log.d(TAG, "onClick: "+e.getMessage());
                 }
                 record.updateAll("record_id=?",oldid);
-
                 Intent intent = new Intent(EditExpendActivity.this, DetailActivity.class);
                 startActivity(intent);
             }

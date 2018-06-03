@@ -29,6 +29,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.nbapp.GlobalVariabls.getSysDate;
+import static com.example.nbapp.GlobalVariabls.getSysMonth;
+import static com.example.nbapp.GlobalVariabls.getSysYear;
+
 public class AddExpendActivity extends AppCompatActivity {
     private String TAG = "AddExpendActivity";
 
@@ -79,6 +83,8 @@ public class AddExpendActivity extends AppCompatActivity {
         add_date = (Button) findViewById(R.id.add_date);
         add_money = (EditText) findViewById(R.id.add_money);
         date = (ImageView) findViewById(R.id.date);
+
+        add_date.setText(getSysYear()+"-"+getSysMonth()+"-"+getSysDate());
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override

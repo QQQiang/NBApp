@@ -217,10 +217,12 @@ public class BilActivity extends AppCompatActivity {
             monthRecord.setIncome(month_income);
             monthRecord.setSurplus(month_surp);
             monthRecord.updateAll("year=? and month=?", year + "", i + "");
+
+            year_income+=month_income;
+            year_expend+=month_expend;
         }
 
-        year_income+=month_income;
-        year_expend+=month_expend;
+
         year_surp=year_income-year_expend;
 
         tv_year_expend.setText(year_expend+"");

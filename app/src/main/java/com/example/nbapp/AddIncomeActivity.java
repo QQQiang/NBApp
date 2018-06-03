@@ -24,6 +24,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.nbapp.GlobalVariabls.getSysDate;
+import static com.example.nbapp.GlobalVariabls.getSysMonth;
+import static com.example.nbapp.GlobalVariabls.getSysYear;
+
 public class AddIncomeActivity extends AppCompatActivity {
     private String TAG = "AddIncomeActivity";
 
@@ -57,7 +61,6 @@ public class AddIncomeActivity extends AppCompatActivity {
             income_type = expendtype.getType();
             income_iconid = expendtype.getIconid();
 
-
         }
     };
 
@@ -76,6 +79,9 @@ public class AddIncomeActivity extends AppCompatActivity {
         date=(ImageView)findViewById(R.id.date);
         add_date=(Button)findViewById(R.id.add_date);
         add_money = (EditText) findViewById(R.id.add_money);
+
+
+        add_date.setText(getSysYear()+"-"+getSysMonth()+"-"+getSysDate());
 
         expend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,6 +171,8 @@ public class AddIncomeActivity extends AppCompatActivity {
         month=cal.get(Calendar.MONTH);   //获取到的月份是从0开始计数
         day=cal.get(Calendar.DAY_OF_MONTH);
     }
+
+
 
 
     /*IncomeType_Icon salary=new IncomeType_Icon();

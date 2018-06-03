@@ -32,6 +32,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.nbapp.GlobalVariabls.getSysMonth;
+import static com.example.nbapp.GlobalVariabls.getSysYear;
 import static java.security.AccessController.getContext;
 
 public class DetailActivity extends AppCompatActivity {
@@ -80,6 +82,8 @@ public class DetailActivity extends AppCompatActivity {
 
 
         detail.setBackgroundResource(R.color.sandybrown);
+
+        tv_show_date.setText(getSysYear()+"-"+getSysMonth());
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

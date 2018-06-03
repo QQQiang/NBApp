@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by 强仔 on 2018/5/15.
  */
 
-public class PieView extends View {
+public class PieView_bug extends View {
     // 颜色表
     private int sandybrown=getResources().getColor(R.color.sandybrown);
     private int white=Color.WHITE;
@@ -25,7 +25,7 @@ public class PieView extends View {
     private int grassgreen=getResources().getColor(R.color.grassgreen);
     private int skyblue=getResources().getColor(R.color.skyblue);
     private int violet=getResources().getColor(R.color.violet);
-    private int[] mColors={yellow,grassgreen,skyblue,violet};
+    private int[] mColors={sandybrown,white};
 
     // 饼状图初始绘制角度w
     private float mStartAngle = 0;
@@ -45,17 +45,16 @@ public class PieView extends View {
     private float mRowMaxLength;
 
 
-    public PieView(Context context) {
+    public PieView_bug(Context context) {
         this(context, null);
     }
 
-    public PieView(Context context, AttributeSet attrs) {
+    public PieView_bug(Context context, AttributeSet attrs) {
         super(context, attrs);
       //  mPaint.setStyle(Paint.Style.FILL);
       //  mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(35);
         mPaint.setStyle(Paint.Style.STROKE);
-
     }
 
     @Override
@@ -95,14 +94,16 @@ public class PieView extends View {
     // 设置起始角度
     public void setStartAngle(int mStartAngle) {
         this.mStartAngle = mStartAngle;
-        invalidate();   // 刷新
+        invalidate();
+
     }
 
     // 设置数据
     public void setData(ArrayList<PieData> mData) {
         this.mData = mData;
         initData(mData);
-        invalidate();   // 刷新
+        invalidate();
+
     }
 
     // 初始化数据
